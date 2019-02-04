@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +55,154 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="dAngel.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dAngelCharacter.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="dsHell.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHell.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="fEditCharacteristic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="fEditCharacteristic.Designer.cs">
+      <DependentUpon>fEditCharacteristic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAngel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAngel.Designer.cs">
+      <DependentUpon>fAngel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSelectActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSelectActivity.Designer.cs">
+      <DependentUpon>fSelectActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fReferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fReferences.Designer.cs">
+      <DependentUpon>fReferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSchool.Designer.cs">
+      <DependentUpon>fSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cAngel.cs" />
+    <Compile Include="Models\cCharacteristic.cs" />
+    <Compile Include="Models\cFunc.cs" />
+    <Compile Include="Models\cSchool.cs" />
+    <Compile Include="fMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMain.Designer.cs">
+      <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sActivity.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sActivityType.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sCharacter.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sCharacterType.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sLoyaltyToLaw.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sLoyaltyToLawGroup.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sScore.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sTitle.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vcCHSelectPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="vcCHSelectPanel.designer.cs">
+      <DependentUpon>vcCHSelectPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vcDayEnablePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="vcDayEnablePanel.Designer.cs">
+      <DependentUpon>vcDayEnablePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vCharacterDependence.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vcPoints.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="vcPoints.Designer.cs">
+      <DependentUpon>vcPoints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vcPointsPanel.cs">
+      <SubType>UserControl</SubType>
+      <Generator>PointsPanel</Generator>
+      <CustomToolNamespace>Tim</CustomToolNamespace>
+    </Compile>
+    <Compile Include="vcPointsPanel.Designer.cs">
+      <DependentUpon>vcPointsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xActivityCharacterN.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xActivityDay.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xCharacterDependence.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="fEditCharacteristic.resx">
+      <DependentUpon>fEditCharacteristic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fMain.resx">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAngel.resx">
+      <DependentUpon>fAngel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fReferences.resx">
+      <DependentUpon>fReferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSchool.resx">
+      <DependentUpon>fSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSelectActivity.resx">
+      <DependentUpon>fSelectActivity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +212,45 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="vcCHSelectPanel.resx">
+      <DependentUpon>vcCHSelectPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vcDayEnablePanel.resx">
+      <DependentUpon>vcDayEnablePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vcPoints.resx">
+      <DependentUpon>vcPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vcPointsPanel.resx">
+      <DependentUpon>vcPointsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB.edmx.diagram">
+      <DependentUpon>DB.edmx</DependentUpon>
+    </None>
+    <None Include="dsHell.xsc">
+      <DependentUpon>dsHell.xsd</DependentUpon>
+    </None>
+    <None Include="dsHell.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHell.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsHell.xss">
+      <DependentUpon>dsHell.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Angel.Models.cFunc.datasource" />
+    <None Include="Properties\DataSources\cCharacteristic.datasource" />
+    <None Include="Properties\DataSources\cLearning.datasource" />
+    <None Include="Properties\DataSources\cSchool.datasource" />
+    <None Include="Properties\DataSources\cSex.datasource" />
+    <None Include="Properties\DataSources\fMain.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,7 +262,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DB\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB.edmx</DependentUpon>
+      <LastGenOutput>DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB.edmx</DependentUpon>
+      <LastGenOutput>DB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
