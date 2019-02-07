@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace Angel
 {
@@ -19,10 +20,12 @@ namespace Angel
 
         private void fReferences_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsHell.sActivityType' table. You can move, or remove it, as needed.
-            this.sActivityTypeTableAdapter.Fill(this.dsHell.sActivityType);
-            // TODO: This line of code loads data into the 'dsHell.sActivity' table. You can move, or remove it, as needed.
-            this.sActivityTableAdapter.Fill(this.dsHell.sActivity);
+            DBEntities db = new DBEntities();
+            BindingSource bs = new BindingSource();
+
+            //db.sActivityType.Where(x=> x == x).Load();
+            bs.DataSource = db.sActivityType.Local.ToBindingList(); 
+            dataGridView2.DataSource = bs;
         }
     }
 }

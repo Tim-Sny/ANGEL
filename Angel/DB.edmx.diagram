@@ -5,9 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1e9a8fdf4b2947f6a53df37c66689458" Name="Diagram">
-        <EntityTypeShape EntityType="DBModel.dAngel" Width="1.5" PointX="12.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.dAngelCharacter" Width="1.5" PointX="14.5" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.sActivity" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.dAngelCharacter" Width="1.75" PointX="14.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sActivity" Width="1.875" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.sActivityType" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.sCharacter" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.sLoyaltyToLaw" Width="1.5" PointX="10" PointY="1.625" IsExpanded="true" />
@@ -15,8 +14,6 @@
         <EntityTypeShape EntityType="DBModel.sScore" Width="1.5" PointX="7.375" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.xActivityCharacterN" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.xActivityDay" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="DBModel.FK_dAngel_sLoyaltyToLaw" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_dAngelCharacter_dAngel" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_sActivity_sActivityType" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_xActivityDay_sActivity" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_xActivityTrain_sActivity" ManuallyRouted="false" />
@@ -26,6 +23,14 @@
         <EntityTypeShape EntityType="DBModel.sCharacterType" Width="1.5" PointX="8.25" PointY="7.75" />
         <EntityTypeShape EntityType="DBModel.sTitle" Width="1.5" PointX="9.625" PointY="4.75" />
         <EntityTypeShape EntityType="DBModel.vCharacterDependence" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="DBModel.dAngelPracticeDay" Width="1.875" PointX="14.5" PointY="4.75" />
+        <EntityTypeShape EntityType="DBModel.dAngelPracticeDayShift" Width="2" PointX="17.375" PointY="5" />
+        <EntityTypeShape EntityType="DBModel.sSex" Width="1.875" PointX="0.75" PointY="10.75" />
+        <AssociationConnector Association="DBModel.FK_dAngelPracticeDayShift_dAngelPracticeDay" />
+        <EntityTypeShape EntityType="DBModel.dAngel" Width="1.5" PointX="12.25" PointY="1.625" />
+        <AssociationConnector Association="DBModel.FK_dAngel_sLoyaltyToLaw" />
+        <AssociationConnector Association="DBModel.FK_dAngelPracticeDay_dAngel" />
+        <AssociationConnector Association="DBModel.FK_dAngelCharacter_dAngel" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

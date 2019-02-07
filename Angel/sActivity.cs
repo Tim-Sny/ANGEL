@@ -25,6 +25,7 @@ namespace Angel
         public string Name { get; set; }
         public int IDsActivityType { get; set; }
         public string Descr { get; set; }
+        public string Code { get; set; }
     
         public virtual sActivityType sActivityType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -27,7 +27,6 @@ namespace Angel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<dAngel> dAngel { get; set; }
         public virtual DbSet<dAngelCharacter> dAngelCharacter { get; set; }
         public virtual DbSet<sActivity> sActivity { get; set; }
         public virtual DbSet<sActivityType> sActivityType { get; set; }
@@ -41,6 +40,10 @@ namespace Angel
         public virtual DbSet<sCharacterType> sCharacterType { get; set; }
         public virtual DbSet<sTitle> sTitle { get; set; }
         public virtual DbSet<vCharacterDependence> vCharacterDependence { get; set; }
+        public virtual DbSet<dAngelPracticeDay> dAngelPracticeDay { get; set; }
+        public virtual DbSet<dAngelPracticeDayShift> dAngelPracticeDayShift { get; set; }
+        public virtual DbSet<sSex> sSex { get; set; }
+        public virtual DbSet<dAngel> dAngel { get; set; }
     
         public virtual int sp_xActivityCharacterN_Modify(Nullable<int> in_IDsACTIVITY, Nullable<int> in_IDsCHARACTER, Nullable<int> in_N, string in_VALUE)
         {

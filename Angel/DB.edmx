@@ -9,26 +9,38 @@
           <Key>
             <PropertyRef Name="IDdAngel" />
           </Key>
-          <Property Name="IDdAngel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDdAngel" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDsSex" Type="int" Nullable="false" />
           <Property Name="IDsLoyaltyToLaw" Type="int" />
-          <Property Name="Title" Type="int" Nullable="false" />
-          <Property Name="Force" Type="int" Nullable="false" />
-          <Property Name="Physique" Type="int" Nullable="false" />
-          <Property Name="Agility" Type="int" Nullable="false" />
-          <Property Name="Wisdom" Type="int" Nullable="false" />
-          <Property Name="Magic" Type="int" Nullable="false" />
-          <Property Name="Luck" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="dAngelCharacter">
           <Key>
             <PropertyRef Name="IDdAngel" />
             <PropertyRef Name="IDsCharacter" />
           </Key>
-          <Property Name="IDdAngel" Type="int" Nullable="false" />
+          <Property Name="IDdAngel" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IDsCharacter" Type="int" Nullable="false" />
-          <Property Name="Val" Type="int" />
+          <Property Name="Val" Type="int" Nullable="false" />
+          <Property Name="Max" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dAngelPracticeDay">
+          <Key>
+            <PropertyRef Name="IDdPracticeDay" />
+          </Key>
+          <Property Name="IDdPracticeDay" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDdAngel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DayNumber" Type="int" Nullable="false" />
+          <Property Name="IDsActivity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dAngelPracticeDayShift">
+          <Key>
+            <PropertyRef Name="IDdPracticeDay" />
+            <PropertyRef Name="IDsCharacter" />
+          </Key>
+          <Property Name="IDdPracticeDay" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IDsCharacter" Type="int" Nullable="false" />
+          <Property Name="Shift" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sActivity">
           <Key>
@@ -37,7 +49,8 @@
           <Property Name="IDsActivity" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDsActivityType" Type="int" Nullable="false" />
-          <Property Name="Descr" Type="nvarchar(max)" />
+          <Property Name="Descr" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <EntityType Name="sActivityType">
           <Key>
@@ -46,6 +59,7 @@
           <Property Name="IDsActivityType" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Max" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="sCharacter">
           <Key>
@@ -91,6 +105,14 @@
           <Property Name="Points" Type="int" Nullable="false" />
           <Property Name="Score" Type="int" Nullable="false" />
           <Property Name="N" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sSex">
+          <Key>
+            <PropertyRef Name="IDsSex" />
+          </Key>
+          <Property Name="IDsSex" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descr" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="sTitle">
           <Key>
@@ -174,6 +196,30 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dAngelPracticeDay_dAngel">
+          <End Role="dAngel" Type="Self.dAngel" Multiplicity="1" />
+          <End Role="dAngelPracticeDay" Type="Self.dAngelPracticeDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dAngel">
+              <PropertyRef Name="IDdAngel" />
+            </Principal>
+            <Dependent Role="dAngelPracticeDay">
+              <PropertyRef Name="IDdAngel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dAngelPracticeDayShift_dAngelPracticeDay">
+          <End Role="dAngelPracticeDay" Type="Self.dAngelPracticeDay" Multiplicity="1" />
+          <End Role="dAngelPracticeDayShift" Type="Self.dAngelPracticeDayShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dAngelPracticeDay">
+              <PropertyRef Name="IDdPracticeDay" />
+            </Principal>
+            <Dependent Role="dAngelPracticeDayShift">
+              <PropertyRef Name="IDdPracticeDay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_sActivity_sActivityType">
           <End Role="sActivityType" Type="Self.sActivityType" Multiplicity="1" />
           <End Role="sActivity" Type="Self.sActivity" Multiplicity="*" />
@@ -248,6 +294,8 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
         <EntityContainer Name="DBModelStoreContainer">
           <EntitySet Name="dAngel" EntityType="Self.dAngel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dAngelCharacter" EntityType="Self.dAngelCharacter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dAngelPracticeDay" EntityType="Self.dAngelPracticeDay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dAngelPracticeDayShift" EntityType="Self.dAngelPracticeDayShift" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sActivity" EntityType="Self.sActivity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sActivityType" EntityType="Self.sActivityType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sCharacter" EntityType="Self.sCharacter" Schema="dbo" store:Type="Tables" />
@@ -255,6 +303,7 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <EntitySet Name="sLoyaltyToLaw" EntityType="Self.sLoyaltyToLaw" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sLoyaltyToLawGroup" EntityType="Self.sLoyaltyToLawGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sScore" EntityType="Self.sScore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sSex" EntityType="Self.sSex" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sTitle" EntityType="Self.sTitle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="xActivityCharacterN" EntityType="Self.xActivityCharacterN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="xActivityDay" EntityType="Self.xActivityDay" Schema="dbo" store:Type="Tables" />
@@ -276,6 +325,14 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <AssociationSet Name="FK_dAngelCharacter_dAngel" Association="Self.FK_dAngelCharacter_dAngel">
             <End Role="dAngel" EntitySet="dAngel" />
             <End Role="dAngelCharacter" EntitySet="dAngelCharacter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dAngelPracticeDay_dAngel" Association="Self.FK_dAngelPracticeDay_dAngel">
+            <End Role="dAngel" EntitySet="dAngel" />
+            <End Role="dAngelPracticeDay" EntitySet="dAngelPracticeDay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dAngelPracticeDayShift_dAngelPracticeDay" Association="Self.FK_dAngelPracticeDayShift_dAngelPracticeDay">
+            <End Role="dAngelPracticeDay" EntitySet="dAngelPracticeDay" />
+            <End Role="dAngelPracticeDayShift" EntitySet="dAngelPracticeDayShift" />
           </AssociationSet>
           <AssociationSet Name="FK_sActivity_sActivityType" Association="Self.FK_sActivity_sActivityType">
             <End Role="sActivityType" EntitySet="sActivityType" />
@@ -302,33 +359,16 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="dAngel">
-          <Key>
-            <PropertyRef Name="IDdAngel" />
-          </Key>
-          <Property Name="IDdAngel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IDsSex" Type="Int32" Nullable="false" />
-          <Property Name="IDsLoyaltyToLaw" Type="Int32" />
-          <Property Name="Title" Type="Int32" Nullable="false" />
-          <Property Name="Force" Type="Int32" Nullable="false" />
-          <Property Name="Physique" Type="Int32" Nullable="false" />
-          <Property Name="Agility" Type="Int32" Nullable="false" />
-          <Property Name="Wisdom" Type="Int32" Nullable="false" />
-          <Property Name="Magic" Type="Int32" Nullable="false" />
-          <Property Name="Luck" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="sLoyaltyToLaw" Relationship="Self.FK_dAngel_sLoyaltyToLaw" FromRole="dAngel" ToRole="sLoyaltyToLaw" />
-          <NavigationProperty Name="dAngelCharacter" Relationship="Self.FK_dAngelCharacter_dAngel" FromRole="dAngel" ToRole="dAngelCharacter" />
-        </EntityType>
         <EntityType Name="dAngelCharacter">
           <Key>
             <PropertyRef Name="IDdAngel" />
             <PropertyRef Name="IDsCharacter" />
           </Key>
-          <Property Name="IDdAngel" Type="Int32" Nullable="false" />
+          <Property Name="IDdAngel" Type="Guid" Nullable="false" />
           <Property Name="IDsCharacter" Type="Int32" Nullable="false" />
-          <Property Name="Val" Type="Int32" />
-          <NavigationProperty Name="dAngel" Relationship="Self.FK_dAngelCharacter_dAngel" FromRole="dAngelCharacter" ToRole="dAngel" />
+          <Property Name="Val" Type="Int32" Nullable="false" />
+          <Property Name="Max" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dAngel" Relationship="DBModel.FK_dAngelCharacter_dAngel" FromRole="dAngelCharacter" ToRole="dAngel" />
         </EntityType>
         <EntityType Name="sActivity">
           <Key>
@@ -337,10 +377,11 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <Property Name="IDsActivity" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IDsActivityType" Type="Int32" Nullable="false" />
-          <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="sActivityType" Relationship="Self.FK_sActivity_sActivityType" FromRole="sActivity" ToRole="sActivityType" />
           <NavigationProperty Name="xActivityDay" Relationship="Self.FK_xActivityDay_sActivity" FromRole="sActivity" ToRole="xActivityDay" />
           <NavigationProperty Name="xActivityCharacterN" Relationship="Self.FK_xActivityTrain_sActivity" FromRole="sActivity" ToRole="xActivityCharacterN" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sActivityType">
           <Key>
@@ -350,6 +391,7 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Max" Type="Int32" Nullable="false" />
           <NavigationProperty Name="sActivity" Relationship="Self.FK_sActivity_sActivityType" FromRole="sActivityType" ToRole="sActivity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="sCharacter">
           <Key>
@@ -371,8 +413,8 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <Property Name="NameSingle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NamePlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="dAngel" Relationship="Self.FK_dAngel_sLoyaltyToLaw" FromRole="sLoyaltyToLaw" ToRole="dAngel" />
           <NavigationProperty Name="sLoyaltyToLawGroup" Relationship="Self.FK_sLoyaltyToLaw_sLoyaltyToLawGroup" FromRole="sLoyaltyToLaw" ToRole="sLoyaltyToLawGroup" />
+          <NavigationProperty Name="dAngel" Relationship="DBModel.FK_dAngel_sLoyaltyToLaw" FromRole="sLoyaltyToLaw" ToRole="dAngel" />
         </EntityType>
         <EntityType Name="sLoyaltyToLawGroup">
           <Key>
@@ -416,30 +458,6 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <Property Name="Value" Type="Int32" Nullable="false" />
           <NavigationProperty Name="sActivity" Relationship="Self.FK_xActivityDay_sActivity" FromRole="xActivityDay" ToRole="sActivity" />
         </EntityType>
-        <Association Name="FK_dAngel_sLoyaltyToLaw">
-          <End Role="sLoyaltyToLaw" Type="Self.sLoyaltyToLaw" Multiplicity="0..1" />
-          <End Role="dAngel" Type="Self.dAngel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sLoyaltyToLaw">
-              <PropertyRef Name="IDsLoyaltyToLaw" />
-            </Principal>
-            <Dependent Role="dAngel">
-              <PropertyRef Name="IDsLoyaltyToLaw" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dAngelCharacter_dAngel">
-          <End Role="dAngel" Type="Self.dAngel" Multiplicity="1" />
-          <End Role="dAngelCharacter" Type="Self.dAngelCharacter" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dAngel">
-              <PropertyRef Name="IDdAngel" />
-            </Principal>
-            <Dependent Role="dAngelCharacter">
-              <PropertyRef Name="IDdAngel" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_sActivity_sActivityType">
           <End Role="sActivityType" Type="Self.sActivityType" Multiplicity="1" />
           <End Role="sActivity" Type="Self.sActivity" Multiplicity="*" />
@@ -501,7 +519,6 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="dAngel" EntityType="Self.dAngel" />
           <EntitySet Name="dAngelCharacter" EntityType="Self.dAngelCharacter" />
           <EntitySet Name="sActivity" EntityType="Self.sActivity" />
           <EntitySet Name="sActivityType" EntityType="Self.sActivityType" />
@@ -511,14 +528,6 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <EntitySet Name="sScore" EntityType="Self.sScore" />
           <EntitySet Name="xActivityCharacterN" EntityType="Self.xActivityCharacterN" />
           <EntitySet Name="xActivityDay" EntityType="Self.xActivityDay" />
-          <AssociationSet Name="FK_dAngel_sLoyaltyToLaw" Association="Self.FK_dAngel_sLoyaltyToLaw">
-            <End Role="sLoyaltyToLaw" EntitySet="sLoyaltyToLaw" />
-            <End Role="dAngel" EntitySet="dAngel" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dAngelCharacter_dAngel" Association="Self.FK_dAngelCharacter_dAngel">
-            <End Role="dAngel" EntitySet="dAngel" />
-            <End Role="dAngelCharacter" EntitySet="dAngelCharacter" />
-          </AssociationSet>
           <AssociationSet Name="FK_sActivity_sActivityType" Association="Self.FK_sActivity_sActivityType">
             <End Role="sActivityType" EntitySet="sActivityType" />
             <End Role="sActivity" EntitySet="sActivity" />
@@ -554,6 +563,26 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <EntitySet Name="sCharacterType" EntityType="DBModel.sCharacterType" />
           <EntitySet Name="sTitle" EntityType="DBModel.sTitle" />
           <EntitySet Name="vCharacterDependence" EntityType="DBModel.vCharacterDependence" />
+          <EntitySet Name="dAngelPracticeDay" EntityType="DBModel.dAngelPracticeDay" />
+          <EntitySet Name="dAngelPracticeDayShift" EntityType="DBModel.dAngelPracticeDayShift" />
+          <EntitySet Name="sSex" EntityType="DBModel.sSex" />
+          <AssociationSet Name="FK_dAngelPracticeDayShift_dAngelPracticeDay" Association="DBModel.FK_dAngelPracticeDayShift_dAngelPracticeDay">
+            <End Role="dAngelPracticeDay" EntitySet="dAngelPracticeDay" />
+            <End Role="dAngelPracticeDayShift" EntitySet="dAngelPracticeDayShift" />
+          </AssociationSet>
+          <EntitySet Name="dAngel" EntityType="DBModel.dAngel" />
+          <AssociationSet Name="FK_dAngel_sLoyaltyToLaw" Association="DBModel.FK_dAngel_sLoyaltyToLaw">
+            <End Role="sLoyaltyToLaw" EntitySet="sLoyaltyToLaw" />
+            <End Role="dAngel" EntitySet="dAngel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dAngelPracticeDay_dAngel" Association="DBModel.FK_dAngelPracticeDay_dAngel">
+            <End Role="dAngel" EntitySet="dAngel" />
+            <End Role="dAngelPracticeDay" EntitySet="dAngelPracticeDay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dAngelCharacter_dAngel" Association="DBModel.FK_dAngelCharacter_dAngel">
+            <End Role="dAngel" EntitySet="dAngel" />
+            <End Role="dAngelCharacter" EntitySet="dAngelCharacter" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="xCharacterDependence">
           <Key>
@@ -598,32 +627,105 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <Property Name="end" Type="Int32" />
           <Property Name="val" Type="Int32" />
         </EntityType>
+        <EntityType Name="dAngelPracticeDay">
+          <Key>
+            <PropertyRef Name="IDdPracticeDay" />
+          </Key>
+          <Property Name="IDdPracticeDay" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDdAngel" Type="Guid" Nullable="false" />
+          <Property Name="DayNumber" Type="Int32" Nullable="false" />
+          <Property Name="IDsActivity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dAngelPracticeDayShift" Relationship="DBModel.FK_dAngelPracticeDayShift_dAngelPracticeDay" FromRole="dAngelPracticeDay" ToRole="dAngelPracticeDayShift" />
+          <NavigationProperty Name="dAngel" Relationship="DBModel.FK_dAngelPracticeDay_dAngel" FromRole="dAngelPracticeDay" ToRole="dAngel" />
+        </EntityType>
+        <EntityType Name="dAngelPracticeDayShift">
+          <Key>
+            <PropertyRef Name="IDdPracticeDay" />
+            <PropertyRef Name="IDsCharacter" />
+          </Key>
+          <Property Name="IDdPracticeDay" Type="Guid" Nullable="false" />
+          <Property Name="IDsCharacter" Type="Int32" Nullable="false" />
+          <Property Name="Shift" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dAngelPracticeDay" Relationship="DBModel.FK_dAngelPracticeDayShift_dAngelPracticeDay" FromRole="dAngelPracticeDayShift" ToRole="dAngelPracticeDay" />
+        </EntityType>
+        <EntityType Name="sSex">
+          <Key>
+            <PropertyRef Name="IDsSex" />
+          </Key>
+          <Property Name="IDsSex" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descr" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dAngelPracticeDayShift_dAngelPracticeDay">
+          <End Type="DBModel.dAngelPracticeDay" Role="dAngelPracticeDay" Multiplicity="1" />
+          <End Type="DBModel.dAngelPracticeDayShift" Role="dAngelPracticeDayShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dAngelPracticeDay">
+              <PropertyRef Name="IDdPracticeDay" />
+            </Principal>
+            <Dependent Role="dAngelPracticeDayShift">
+              <PropertyRef Name="IDdPracticeDay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="dAngel">
+          <Key>
+            <PropertyRef Name="IDdAngel" />
+          </Key>
+          <Property Name="IDdAngel" Type="Guid" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDsSex" Type="Int32" Nullable="false" />
+          <Property Name="IDsLoyaltyToLaw" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="sLoyaltyToLaw" Relationship="DBModel.FK_dAngel_sLoyaltyToLaw" FromRole="dAngel" ToRole="sLoyaltyToLaw" />
+          <NavigationProperty Name="dAngelPracticeDay" Relationship="DBModel.FK_dAngelPracticeDay_dAngel" FromRole="dAngel" ToRole="dAngelPracticeDay" />
+          <NavigationProperty Name="dAngelCharacter" Relationship="DBModel.FK_dAngelCharacter_dAngel" FromRole="dAngel" ToRole="dAngelCharacter" />
+        </EntityType>
+        <Association Name="FK_dAngel_sLoyaltyToLaw">
+          <End Type="DBModel.sLoyaltyToLaw" Role="sLoyaltyToLaw" Multiplicity="0..1" />
+          <End Type="DBModel.dAngel" Role="dAngel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sLoyaltyToLaw">
+              <PropertyRef Name="IDsLoyaltyToLaw" />
+            </Principal>
+            <Dependent Role="dAngel">
+              <PropertyRef Name="IDsLoyaltyToLaw" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dAngelPracticeDay_dAngel">
+          <End Type="DBModel.dAngel" Role="dAngel" Multiplicity="1" />
+          <End Type="DBModel.dAngelPracticeDay" Role="dAngelPracticeDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dAngel">
+              <PropertyRef Name="IDdAngel" />
+            </Principal>
+            <Dependent Role="dAngelPracticeDay">
+              <PropertyRef Name="IDdAngel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dAngelCharacter_dAngel">
+          <End Type="DBModel.dAngel" Role="dAngel" Multiplicity="1" />
+          <End Type="DBModel.dAngelCharacter" Role="dAngelCharacter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dAngel">
+              <PropertyRef Name="IDdAngel" />
+            </Principal>
+            <Dependent Role="dAngelCharacter">
+              <PropertyRef Name="IDdAngel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
-          <EntitySetMapping Name="dAngel">
-            <EntityTypeMapping TypeName="DBModel.dAngel">
-              <MappingFragment StoreEntitySet="dAngel">
-                <ScalarProperty Name="IDdAngel" ColumnName="IDdAngel" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IDsSex" ColumnName="IDsSex" />
-                <ScalarProperty Name="IDsLoyaltyToLaw" ColumnName="IDsLoyaltyToLaw" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Force" ColumnName="Force" />
-                <ScalarProperty Name="Physique" ColumnName="Physique" />
-                <ScalarProperty Name="Agility" ColumnName="Agility" />
-                <ScalarProperty Name="Wisdom" ColumnName="Wisdom" />
-                <ScalarProperty Name="Magic" ColumnName="Magic" />
-                <ScalarProperty Name="Luck" ColumnName="Luck" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dAngelCharacter">
             <EntityTypeMapping TypeName="DBModel.dAngelCharacter">
               <MappingFragment StoreEntitySet="dAngelCharacter">
+                <ScalarProperty Name="Max" ColumnName="Max" />
                 <ScalarProperty Name="IDdAngel" ColumnName="IDdAngel" />
                 <ScalarProperty Name="IDsCharacter" ColumnName="IDsCharacter" />
                 <ScalarProperty Name="Val" ColumnName="Val" />
@@ -633,6 +735,7 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <EntitySetMapping Name="sActivity">
             <EntityTypeMapping TypeName="DBModel.sActivity">
               <MappingFragment StoreEntitySet="sActivity">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="IDsActivity" ColumnName="IDsActivity" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDsActivityType" ColumnName="IDsActivityType" />
@@ -643,6 +746,7 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
           <EntitySetMapping Name="sActivityType">
             <EntityTypeMapping TypeName="DBModel.sActivityType">
               <MappingFragment StoreEntitySet="sActivityType">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="IDsActivityType" ColumnName="IDsActivityType" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Max" ColumnName="Max" />
@@ -750,6 +854,44 @@ warning 6002: The table/view 'Hell.dbo.vCharacterDependence' does not have a pri
                 <ScalarProperty Name="sex" ColumnName="sex" />
                 <ScalarProperty Name="dep" ColumnName="dep" />
                 <ScalarProperty Name="chr" ColumnName="chr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dAngelPracticeDay">
+            <EntityTypeMapping TypeName="DBModel.dAngelPracticeDay">
+              <MappingFragment StoreEntitySet="dAngelPracticeDay">
+                <ScalarProperty Name="IDsActivity" ColumnName="IDsActivity" />
+                <ScalarProperty Name="DayNumber" ColumnName="DayNumber" />
+                <ScalarProperty Name="IDdAngel" ColumnName="IDdAngel" />
+                <ScalarProperty Name="IDdPracticeDay" ColumnName="IDdPracticeDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dAngelPracticeDayShift">
+            <EntityTypeMapping TypeName="DBModel.dAngelPracticeDayShift">
+              <MappingFragment StoreEntitySet="dAngelPracticeDayShift">
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="IDsCharacter" ColumnName="IDsCharacter" />
+                <ScalarProperty Name="IDdPracticeDay" ColumnName="IDdPracticeDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sSex">
+            <EntityTypeMapping TypeName="DBModel.sSex">
+              <MappingFragment StoreEntitySet="sSex">
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IDsSex" ColumnName="IDsSex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dAngel">
+            <EntityTypeMapping TypeName="DBModel.dAngel">
+              <MappingFragment StoreEntitySet="dAngel">
+                <ScalarProperty Name="IDsLoyaltyToLaw" ColumnName="IDsLoyaltyToLaw" />
+                <ScalarProperty Name="IDsSex" ColumnName="IDsSex" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IDdAngel" ColumnName="IDdAngel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

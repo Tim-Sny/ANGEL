@@ -20,7 +20,7 @@ namespace Angel
         {
             set
             {
-                _shift = value - _value;
+                //_shift = value - _value;
 
                 if (HasMax && value > Max) { _value = Max;  }
                 else if (value < Min)      { _value = Min;  }
@@ -30,6 +30,7 @@ namespace Angel
                 if (ValueControl is PointsLabel) ((PointsLabel)ValueControl).Shift = _shift;
                 if (ValueControl is Label) ((Label)ValueControl).Text = _value.ToString();
                 if (ScoreControl is Label) ((Label)ScoreControl).Text = cFunc.Sign(fMain.oSchool.GetScoreByPoints(_value));
+
             }
             get { return _value; }
         }
@@ -44,12 +45,22 @@ namespace Angel
             get { return _max + Bonus; }
         }
         public int Min { set { _min = value; } get { return _min; } }
-        public int Shift { set { _shift = value; } get { return _shift; } }
+        public int Shift
+        {
+            set
+            {
+                _shift = value;
+                if (ValueControl is PointsLabel) ((PointsLabel)ValueControl).Shift = _shift;
+            }
+            get
+            {
+                return _shift;
+            }
+        }
         public int Bonus { set; get; } // Бонус к характеристике. Постоянная добавка в динамической характеристике...
         //public int ID { set; get; }
 
 
-        public Control control;
         public int Level
         { get { return (int)((Math.Sqrt(1 + 8 * _value) - 1) / 2); } }
         public int Score
@@ -57,14 +68,17 @@ namespace Angel
 
         public void ShiftValue(int _shift)
         {
-            Value += _shift; 
+            this._shift = _shift;
+            Value += _shift;
         }
         public void ShiftMax(int _shift)
         {
+            this._shift = _shift;
             Max += _shift;
         }
         public void ShiftBonus(int _shift)
         {
+            this._shift = _shift;
             Bonus += _shift;
         }
         public void ShiftValue()

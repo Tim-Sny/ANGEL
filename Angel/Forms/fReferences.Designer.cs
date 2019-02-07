@@ -29,22 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.BindingSource sActivityBindingSource;
             this.tcRefs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDsActivityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDsActivityTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.sActivityTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsHell = new Angel.dsHell();
-            this.sActivityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.iDsActivityTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.sActivityTableAdapter = new Angel.dsHellTableAdapters.sActivityTableAdapter();
-            this.sActivityTypeTableAdapter = new Angel.dsHellTableAdapters.sActivityTypeTableAdapter();
+            this.iDsActivityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDsActivityTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sActivityTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xActivityDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xActivityCharacterNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            sActivityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tcRefs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -52,10 +51,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sActivityTypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsHell)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sActivityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sActivityBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcRefs
@@ -105,84 +102,29 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDsActivityDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.iDsActivityTypeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.sActivityBindingSource;
+            this.nameDataGridViewTextBoxColumn1,
+            this.iDsActivityTypeDataGridViewTextBoxColumn1,
+            this.descrDataGridViewTextBoxColumn,
+            this.sActivityTypeDataGridViewTextBoxColumn,
+            this.xActivityDayDataGridViewTextBoxColumn,
+            this.xActivityCharacterNDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = sActivityBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(584, 418);
             this.dataGridView1.TabIndex = 0;
             // 
-            // iDsActivityDataGridViewTextBoxColumn
-            // 
-            this.iDsActivityDataGridViewTextBoxColumn.DataPropertyName = "IDsActivity";
-            this.iDsActivityDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDsActivityDataGridViewTextBoxColumn.Name = "iDsActivityDataGridViewTextBoxColumn";
-            this.iDsActivityDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 400;
-            // 
-            // iDsActivityTypeDataGridViewTextBoxColumn
-            // 
-            this.iDsActivityTypeDataGridViewTextBoxColumn.DataPropertyName = "IDsActivityType";
-            this.iDsActivityTypeDataGridViewTextBoxColumn.DataSource = this.sActivityTypeBindingSource;
-            this.iDsActivityTypeDataGridViewTextBoxColumn.DisplayMember = "Name";
-            this.iDsActivityTypeDataGridViewTextBoxColumn.HeaderText = "Группа";
-            this.iDsActivityTypeDataGridViewTextBoxColumn.Name = "iDsActivityTypeDataGridViewTextBoxColumn";
-            this.iDsActivityTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.iDsActivityTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.iDsActivityTypeDataGridViewTextBoxColumn.ValueMember = "IDsActivityType";
-            // 
-            // sActivityTypeBindingSource
-            // 
-            this.sActivityTypeBindingSource.DataMember = "sActivityType";
-            this.sActivityTypeBindingSource.DataSource = this.dsHell;
-            // 
-            // dsHell
-            // 
-            this.dsHell.DataSetName = "dsHell";
-            this.dsHell.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sActivityBindingSource
-            // 
-            this.sActivityBindingSource.DataMember = "sActivity";
-            this.sActivityBindingSource.DataSource = this.dsHell;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDsActivityTypeDataGridViewTextBoxColumn1,
-            this.nameDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.sActivityTypeBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(198, 418);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // iDsActivityTypeDataGridViewTextBoxColumn1
-            // 
-            this.iDsActivityTypeDataGridViewTextBoxColumn1.DataPropertyName = "IDsActivityType";
-            this.iDsActivityTypeDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDsActivityTypeDataGridViewTextBoxColumn1.Name = "iDsActivityTypeDataGridViewTextBoxColumn1";
-            this.iDsActivityTypeDataGridViewTextBoxColumn1.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Группа";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.Width = 115;
             // 
             // tabPage2
             // 
@@ -194,13 +136,52 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // sActivityTableAdapter
+            // iDsActivityDataGridViewTextBoxColumn
             // 
-            this.sActivityTableAdapter.ClearBeforeFill = true;
+            this.iDsActivityDataGridViewTextBoxColumn.DataPropertyName = "IDsActivity";
+            this.iDsActivityDataGridViewTextBoxColumn.HeaderText = "IDsActivity";
+            this.iDsActivityDataGridViewTextBoxColumn.Name = "iDsActivityDataGridViewTextBoxColumn";
             // 
-            // sActivityTypeTableAdapter
+            // nameDataGridViewTextBoxColumn1
             // 
-            this.sActivityTypeTableAdapter.ClearBeforeFill = true;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // iDsActivityTypeDataGridViewTextBoxColumn1
+            // 
+            this.iDsActivityTypeDataGridViewTextBoxColumn1.DataPropertyName = "IDsActivityType";
+            this.iDsActivityTypeDataGridViewTextBoxColumn1.HeaderText = "IDsActivityType";
+            this.iDsActivityTypeDataGridViewTextBoxColumn1.Name = "iDsActivityTypeDataGridViewTextBoxColumn1";
+            // 
+            // descrDataGridViewTextBoxColumn
+            // 
+            this.descrDataGridViewTextBoxColumn.DataPropertyName = "Descr";
+            this.descrDataGridViewTextBoxColumn.HeaderText = "Descr";
+            this.descrDataGridViewTextBoxColumn.Name = "descrDataGridViewTextBoxColumn";
+            // 
+            // sActivityTypeDataGridViewTextBoxColumn
+            // 
+            this.sActivityTypeDataGridViewTextBoxColumn.DataPropertyName = "sActivityType";
+            this.sActivityTypeDataGridViewTextBoxColumn.HeaderText = "sActivityType";
+            this.sActivityTypeDataGridViewTextBoxColumn.Name = "sActivityTypeDataGridViewTextBoxColumn";
+            // 
+            // xActivityDayDataGridViewTextBoxColumn
+            // 
+            this.xActivityDayDataGridViewTextBoxColumn.DataPropertyName = "xActivityDay";
+            this.xActivityDayDataGridViewTextBoxColumn.HeaderText = "xActivityDay";
+            this.xActivityDayDataGridViewTextBoxColumn.Name = "xActivityDayDataGridViewTextBoxColumn";
+            // 
+            // xActivityCharacterNDataGridViewTextBoxColumn
+            // 
+            this.xActivityCharacterNDataGridViewTextBoxColumn.DataPropertyName = "xActivityCharacterN";
+            this.xActivityCharacterNDataGridViewTextBoxColumn.HeaderText = "xActivityCharacterN";
+            this.xActivityCharacterNDataGridViewTextBoxColumn.Name = "xActivityCharacterNDataGridViewTextBoxColumn";
+            // 
+            // sActivityBindingSource
+            // 
+            sActivityBindingSource.AllowNew = false;
+            sActivityBindingSource.DataSource = typeof(Angel.sActivity);
             // 
             // fReferences
             // 
@@ -219,10 +200,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sActivityTypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsHell)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sActivityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sActivityBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,17 +212,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private dsHell dsHell;
-        private System.Windows.Forms.BindingSource sActivityBindingSource;
-        private dsHellTableAdapters.sActivityTableAdapter sActivityTableAdapter;
-        private System.Windows.Forms.BindingSource sActivityTypeBindingSource;
-        private dsHellTableAdapters.sActivityTypeTableAdapter sActivityTypeTableAdapter;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDsActivityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn iDsActivityTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDsActivityTypeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDsActivityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDsActivityTypeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sActivityTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xActivityDayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xActivityCharacterNDataGridViewTextBoxColumn;
     }
 }

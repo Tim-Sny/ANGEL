@@ -12,20 +12,21 @@ namespace Angel
     using System;
     using System.Collections.Generic;
     
-    public partial class sActivityType
+    public partial class dAngelPracticeDay
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public sActivityType()
+        public dAngelPracticeDay()
         {
-            this.sActivity = new HashSet<sActivity>();
+            this.dAngelPracticeDayShift = new HashSet<dAngelPracticeDayShift>();
         }
     
-        public int IDsActivityType { get; set; }
-        public string Name { get; set; }
-        public int Max { get; set; }
-        public string Code { get; set; }
+        public System.Guid IDdPracticeDay { get; set; }
+        public System.Guid IDdAngel { get; set; }
+        public int DayNumber { get; set; }
+        public int IDsActivity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<sActivity> sActivity { get; set; }
+        public virtual ICollection<dAngelPracticeDayShift> dAngelPracticeDayShift { get; set; }
+        public virtual dAngel dAngel { get; set; }
     }
 }

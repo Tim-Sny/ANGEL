@@ -251,7 +251,7 @@
             // 
             // tbDescr
             // 
-            this.tbDescr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbDescr.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbDescr.Location = new System.Drawing.Point(0, 0);
             this.tbDescr.Multiline = true;
             this.tbDescr.Name = "tbDescr";

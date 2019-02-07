@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel01 = new System.Windows.Forms.Panel();
             this.cbShowStat = new System.Windows.Forms.CheckBox();
             this.lName = new System.Windows.Forms.Label();
-            this.dsHell = new Angel.dsHell();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -47,13 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tlTrainPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.xActivityTrainTableAdapter = new Angel.dsHellTableAdapters.xActivityTrainTableAdapter();
             this.label14 = new System.Windows.Forms.Label();
-            this.pointsPanel50 = new Angel.PointsPanel();
-            this.pointsPanel49 = new Angel.PointsPanel();
-            this.pointsPanel48 = new Angel.PointsPanel();
-            this.pointsPanel44 = new Angel.PointsPanel();
-            this.pointsPanel43 = new Angel.PointsPanel();
             this.pointsPanel10 = new Angel.PointsPanel();
             this.pointsPanel11 = new Angel.PointsPanel();
             this.pointsPanel14 = new Angel.PointsPanel();
@@ -97,13 +89,15 @@
             this.pointsPanel7 = new Angel.PointsPanel();
             this.pointsPanel8 = new Angel.PointsPanel();
             this.pointsPanel47 = new Angel.PointsPanel();
-            this.pointsPanel45 = new Angel.PointsPanel();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pointsPanel48 = new Angel.PointsPanel();
+            this.pointsPanel44 = new Angel.PointsPanel();
+            this.pointsPanel43 = new Angel.PointsPanel();
+            this.pointsPanel49 = new Angel.PointsPanel();
+            this.pointsPanel50 = new Angel.PointsPanel();
             this.chSelectPanel1 = new Angel.CHSelectPanel();
+            this.pointsPanel45 = new Angel.PointsPanel();
             this.panel01.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsHell)).BeginInit();
             this.tlTrainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel01
@@ -143,11 +137,6 @@
             this.lName.TabIndex = 0;
             this.lName.Text = "Название тренировки";
             this.lName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dsHell
-            // 
-            this.dsHell.DataSetName = "dsHell";
-            this.dsHell.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label13
             // 
@@ -394,10 +383,6 @@
             this.tlTrainPanel.Size = new System.Drawing.Size(1217, 379);
             this.tlTrainPanel.TabIndex = 2;
             // 
-            // xActivityTrainTableAdapter
-            // 
-            this.xActivityTrainTableAdapter.ClearBeforeFill = true;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -409,81 +394,6 @@
             this.label14.TabIndex = 49;
             this.label14.Text = "Характеристика";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pointsPanel50
-            // 
-            this.pointsPanel50.AutoSize = true;
-            this.pointsPanel50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pointsPanel50.Location = new System.Drawing.Point(345, 322);
-            this.pointsPanel50.Margin = new System.Windows.Forms.Padding(0);
-            this.pointsPanel50.Name = "pointsPanel50";
-            this.pointsPanel50.Points = "Накидка";
-            this.pointsPanel50.Size = new System.Drawing.Size(145, 57);
-            this.pointsPanel50.TabIndex = 43;
-            this.pointsPanel50.Tag = new int[] {
-        -1,
-        -1,
-        -1};
-            // 
-            // pointsPanel49
-            // 
-            this.pointsPanel49.AutoSize = true;
-            this.pointsPanel49.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pointsPanel49.Location = new System.Drawing.Point(635, 322);
-            this.pointsPanel49.Margin = new System.Windows.Forms.Padding(0);
-            this.pointsPanel49.Name = "pointsPanel49";
-            this.pointsPanel49.Points = "Накидка";
-            this.pointsPanel49.Size = new System.Drawing.Size(145, 57);
-            this.pointsPanel49.TabIndex = 45;
-            this.pointsPanel49.Tag = new int[] {
-        -1,
-        -1,
-        -1};
-            // 
-            // pointsPanel48
-            // 
-            this.pointsPanel48.AutoSize = true;
-            this.pointsPanel48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pointsPanel48.Location = new System.Drawing.Point(1070, 322);
-            this.pointsPanel48.Margin = new System.Windows.Forms.Padding(0);
-            this.pointsPanel48.Name = "pointsPanel48";
-            this.pointsPanel48.Points = "Накидка";
-            this.pointsPanel48.Size = new System.Drawing.Size(147, 57);
-            this.pointsPanel48.TabIndex = 48;
-            this.pointsPanel48.Tag = new int[] {
-        -1,
-        -1,
-        -1};
-            // 
-            // pointsPanel44
-            // 
-            this.pointsPanel44.AutoSize = true;
-            this.pointsPanel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pointsPanel44.Location = new System.Drawing.Point(925, 322);
-            this.pointsPanel44.Margin = new System.Windows.Forms.Padding(0);
-            this.pointsPanel44.Name = "pointsPanel44";
-            this.pointsPanel44.Points = "Накидка";
-            this.pointsPanel44.Size = new System.Drawing.Size(145, 57);
-            this.pointsPanel44.TabIndex = 47;
-            this.pointsPanel44.Tag = new int[] {
-        -1,
-        -1,
-        -1};
-            // 
-            // pointsPanel43
-            // 
-            this.pointsPanel43.AutoSize = true;
-            this.pointsPanel43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pointsPanel43.Location = new System.Drawing.Point(780, 322);
-            this.pointsPanel43.Margin = new System.Windows.Forms.Padding(0);
-            this.pointsPanel43.Name = "pointsPanel43";
-            this.pointsPanel43.Points = "Накидка";
-            this.pointsPanel43.Size = new System.Drawing.Size(145, 57);
-            this.pointsPanel43.TabIndex = 46;
-            this.pointsPanel43.Tag = new int[] {
-        -1,
-        -1,
-        -1};
             // 
             // pointsPanel10
             // 
@@ -1130,6 +1040,94 @@
         -1,
         -1};
             // 
+            // pointsPanel48
+            // 
+            this.pointsPanel48.AutoSize = true;
+            this.pointsPanel48.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pointsPanel48.Location = new System.Drawing.Point(1070, 322);
+            this.pointsPanel48.Margin = new System.Windows.Forms.Padding(0);
+            this.pointsPanel48.Name = "pointsPanel48";
+            this.pointsPanel48.Points = "Накидка";
+            this.pointsPanel48.Size = new System.Drawing.Size(147, 57);
+            this.pointsPanel48.TabIndex = 48;
+            this.pointsPanel48.Tag = new int[] {
+        -1,
+        -1,
+        -1};
+            // 
+            // pointsPanel44
+            // 
+            this.pointsPanel44.AutoSize = true;
+            this.pointsPanel44.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pointsPanel44.Location = new System.Drawing.Point(925, 322);
+            this.pointsPanel44.Margin = new System.Windows.Forms.Padding(0);
+            this.pointsPanel44.Name = "pointsPanel44";
+            this.pointsPanel44.Points = "Накидка";
+            this.pointsPanel44.Size = new System.Drawing.Size(145, 57);
+            this.pointsPanel44.TabIndex = 47;
+            this.pointsPanel44.Tag = new int[] {
+        -1,
+        -1,
+        -1};
+            // 
+            // pointsPanel43
+            // 
+            this.pointsPanel43.AutoSize = true;
+            this.pointsPanel43.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pointsPanel43.Location = new System.Drawing.Point(780, 322);
+            this.pointsPanel43.Margin = new System.Windows.Forms.Padding(0);
+            this.pointsPanel43.Name = "pointsPanel43";
+            this.pointsPanel43.Points = "Накидка";
+            this.pointsPanel43.Size = new System.Drawing.Size(145, 57);
+            this.pointsPanel43.TabIndex = 46;
+            this.pointsPanel43.Tag = new int[] {
+        -1,
+        -1,
+        -1};
+            // 
+            // pointsPanel49
+            // 
+            this.pointsPanel49.AutoSize = true;
+            this.pointsPanel49.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pointsPanel49.Location = new System.Drawing.Point(635, 322);
+            this.pointsPanel49.Margin = new System.Windows.Forms.Padding(0);
+            this.pointsPanel49.Name = "pointsPanel49";
+            this.pointsPanel49.Points = "Накидка";
+            this.pointsPanel49.Size = new System.Drawing.Size(145, 57);
+            this.pointsPanel49.TabIndex = 45;
+            this.pointsPanel49.Tag = new int[] {
+        -1,
+        -1,
+        -1};
+            // 
+            // pointsPanel50
+            // 
+            this.pointsPanel50.AutoSize = true;
+            this.pointsPanel50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pointsPanel50.Location = new System.Drawing.Point(345, 322);
+            this.pointsPanel50.Margin = new System.Windows.Forms.Padding(0);
+            this.pointsPanel50.Name = "pointsPanel50";
+            this.pointsPanel50.Points = "Накидка";
+            this.pointsPanel50.Size = new System.Drawing.Size(145, 57);
+            this.pointsPanel50.TabIndex = 43;
+            this.pointsPanel50.Tag = new int[] {
+        -1,
+        -1,
+        -1};
+            // 
+            // chSelectPanel1
+            // 
+            this.chSelectPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chSelectPanel1.Location = new System.Drawing.Point(203, 322);
+            this.chSelectPanel1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.chSelectPanel1.Name = "chSelectPanel1";
+            this.chSelectPanel1.Size = new System.Drawing.Size(139, 57);
+            this.chSelectPanel1.TabIndex = 50;
+            this.chSelectPanel1.Tag = new int[] {
+        -1,
+        -1,
+        -1};
+            // 
             // pointsPanel45
             // 
             this.pointsPanel45.AutoSize = true;
@@ -1141,23 +1139,6 @@
             this.pointsPanel45.Size = new System.Drawing.Size(145, 57);
             this.pointsPanel45.TabIndex = 44;
             this.pointsPanel45.Tag = new int[] {
-        -1,
-        -1,
-        -1};
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Angel.cActivity);
-            // 
-            // chSelectPanel1
-            // 
-            this.chSelectPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chSelectPanel1.Location = new System.Drawing.Point(203, 322);
-            this.chSelectPanel1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.chSelectPanel1.Name = "chSelectPanel1";
-            this.chSelectPanel1.Size = new System.Drawing.Size(139, 57);
-            this.chSelectPanel1.TabIndex = 42;
-            this.chSelectPanel1.Tag = new int[] {
         -1,
         -1,
         -1};
@@ -1176,10 +1157,8 @@
             this.ResizeEnd += new System.EventHandler(this.fEditCharacteristic_ResizeEnd);
             this.panel01.ResumeLayout(false);
             this.panel01.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsHell)).EndInit();
             this.tlTrainPanel.ResumeLayout(false);
             this.tlTrainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1188,9 +1167,6 @@
 
         private System.Windows.Forms.Panel panel01;
         private System.Windows.Forms.Label lName;
-        private dsHell dsHell;
-        private dsHellTableAdapters.xActivityTrainTableAdapter xActivityTrainTableAdapter;
-        private System.Windows.Forms.BindingSource bindingSource;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;

@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,9 +54,76 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +141,12 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="dAngelCharacter.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dAngelPracticeDay.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dAngelPracticeDayShift.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="DB.Context.cs">
@@ -81,48 +169,74 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHell.xsd</DependentUpon>
     </Compile>
-    <Compile Include="fEditCharacteristic.cs">
+    <Compile Include="Forms\fEditCharacteristic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fEditCharacteristic.Designer.cs">
+    <Compile Include="Forms\fEditCharacteristic.Designer.cs">
       <DependentUpon>fEditCharacteristic.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAngel.cs">
+    <Compile Include="Forms\fAngel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAngel.Designer.cs">
+    <Compile Include="Forms\fAngel.Designer.cs">
       <DependentUpon>fAngel.cs</DependentUpon>
     </Compile>
-    <Compile Include="fSelectActivity.cs">
+    <Compile Include="Forms\fSelectActivity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fSelectActivity.Designer.cs">
+    <Compile Include="Forms\fSelectActivity.Designer.cs">
       <DependentUpon>fSelectActivity.cs</DependentUpon>
     </Compile>
-    <Compile Include="fReferences.cs">
+    <Compile Include="Forms\fReferences.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fReferences.Designer.cs">
+    <Compile Include="Forms\fReferences.Designer.cs">
       <DependentUpon>fReferences.cs</DependentUpon>
     </Compile>
-    <Compile Include="fSchool.cs">
+    <Compile Include="Forms\fSchool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fSchool.Designer.cs">
+    <Compile Include="Forms\fSchool.Designer.cs">
       <DependentUpon>fSchool.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\cAngel.cs" />
     <Compile Include="Models\cCharacteristic.cs" />
     <Compile Include="Models\cFunc.cs" />
     <Compile Include="Models\cSchool.cs" />
-    <Compile Include="fMain.cs">
+    <Compile Include="Forms\fMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fMain.Designer.cs">
+    <Compile Include="Forms\fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\vcCHSelectPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\vcCHSelectPanel.designer.cs">
+      <DependentUpon>vcCHSelectPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vcDayEnablePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\vcDayEnablePanel.Designer.cs">
+      <DependentUpon>vcDayEnablePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vcPoints.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\vcPoints.Designer.cs">
+      <DependentUpon>vcPoints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vcPointsPanel.cs">
+      <SubType>UserControl</SubType>
+      <Generator>PointsPanel</Generator>
+      <CustomToolNamespace>Tim</CustomToolNamespace>
+    </Compile>
+    <Compile Include="Controls\vcPointsPanel.Designer.cs">
+      <DependentUpon>vcPointsPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="sActivity.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -144,37 +258,14 @@
     <Compile Include="sScore.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="sSex.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="sTitle.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="vcCHSelectPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="vcCHSelectPanel.designer.cs">
-      <DependentUpon>vcCHSelectPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="vcDayEnablePanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="vcDayEnablePanel.Designer.cs">
-      <DependentUpon>vcDayEnablePanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="vCharacterDependence.cs">
       <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vcPoints.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="vcPoints.Designer.cs">
-      <DependentUpon>vcPoints.cs</DependentUpon>
-    </Compile>
-    <Compile Include="vcPointsPanel.cs">
-      <SubType>UserControl</SubType>
-      <Generator>PointsPanel</Generator>
-      <CustomToolNamespace>Tim</CustomToolNamespace>
-    </Compile>
-    <Compile Include="vcPointsPanel.Designer.cs">
-      <DependentUpon>vcPointsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="xActivityCharacterN.cs">
       <DependentUpon>DB.tt</DependentUpon>
@@ -185,22 +276,22 @@
     <Compile Include="xCharacterDependence.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="fEditCharacteristic.resx">
+    <EmbeddedResource Include="Forms\fEditCharacteristic.resx">
       <DependentUpon>fEditCharacteristic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fMain.resx">
+    <EmbeddedResource Include="Forms\fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAngel.resx">
+    <EmbeddedResource Include="Forms\fAngel.resx">
       <DependentUpon>fAngel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fReferences.resx">
+    <EmbeddedResource Include="Forms\fReferences.resx">
       <DependentUpon>fReferences.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fSchool.resx">
+    <EmbeddedResource Include="Forms\fSchool.resx">
       <DependentUpon>fSchool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fSelectActivity.resx">
+    <EmbeddedResource Include="Forms\fSelectActivity.resx">
       <DependentUpon>fSelectActivity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -212,16 +303,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="vcCHSelectPanel.resx">
+    <EmbeddedResource Include="Controls\vcCHSelectPanel.resx">
       <DependentUpon>vcCHSelectPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vcDayEnablePanel.resx">
+    <EmbeddedResource Include="Controls\vcDayEnablePanel.resx">
       <DependentUpon>vcDayEnablePanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vcPoints.resx">
+    <EmbeddedResource Include="Controls\vcPoints.resx">
       <DependentUpon>vcPoints.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vcPointsPanel.resx">
+    <EmbeddedResource Include="Controls\vcPointsPanel.resx">
       <DependentUpon>vcPointsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DB.edmx">
@@ -250,7 +341,10 @@
     <None Include="Properties\DataSources\cLearning.datasource" />
     <None Include="Properties\DataSources\cSchool.datasource" />
     <None Include="Properties\DataSources\cSex.datasource" />
+    <None Include="Properties\DataSources\DBEntities.datasource" />
     <None Include="Properties\DataSources\fMain.datasource" />
+    <None Include="Properties\DataSources\sActivity.datasource" />
+    <None Include="Properties\DataSources\sActivityType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -283,6 +377,18 @@
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

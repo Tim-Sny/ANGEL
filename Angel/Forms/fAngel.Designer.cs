@@ -64,11 +64,23 @@
             this.pnLuckCaption = new System.Windows.Forms.Panel();
             this.lb81 = new System.Windows.Forms.Label();
             this.pn32 = new System.Windows.Forms.Panel();
+            this.btCh0dec = new System.Windows.Forms.Button();
+            this.btCh0inc = new System.Windows.Forms.Button();
             this.pn42 = new System.Windows.Forms.Panel();
+            this.btCh1dec = new System.Windows.Forms.Button();
+            this.btCh1inc = new System.Windows.Forms.Button();
             this.pn52 = new System.Windows.Forms.Panel();
+            this.btCh2dec = new System.Windows.Forms.Button();
+            this.btCh2inc = new System.Windows.Forms.Button();
             this.pn62 = new System.Windows.Forms.Panel();
+            this.btCh3dec = new System.Windows.Forms.Button();
+            this.btCh3inc = new System.Windows.Forms.Button();
             this.pn72 = new System.Windows.Forms.Panel();
+            this.btCh4dec = new System.Windows.Forms.Button();
+            this.btCh4inc = new System.Windows.Forms.Button();
             this.pnLuckValue = new System.Windows.Forms.Panel();
+            this.btCh5dec = new System.Windows.Forms.Button();
+            this.btCh5inc = new System.Windows.Forms.Button();
             this.rbLuckAVG = new System.Windows.Forms.RadioButton();
             this.rbLuckRND = new System.Windows.Forms.RadioButton();
             this.pn33 = new System.Windows.Forms.Panel();
@@ -111,23 +123,16 @@
             this.lbSpiritCur = new System.Windows.Forms.Label();
             this.pn85 = new System.Windows.Forms.Panel();
             this.btDay = new System.Windows.Forms.Button();
+            this.lbPracticeCode = new System.Windows.Forms.Label();
             this.pn92 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btEnd = new System.Windows.Forms.Button();
+            this.pn105 = new System.Windows.Forms.Panel();
+            this.btSave = new System.Windows.Forms.Button();
+            this.pn155 = new System.Windows.Forms.Panel();
+            this.btNext = new System.Windows.Forms.Button();
             this.pnTest = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
             this.Tips = new System.Windows.Forms.ToolTip(this.components);
-            this.btCh0inc = new System.Windows.Forms.Button();
-            this.btCh1inc = new System.Windows.Forms.Button();
-            this.btCh2inc = new System.Windows.Forms.Button();
-            this.btCh3inc = new System.Windows.Forms.Button();
-            this.btCh4inc = new System.Windows.Forms.Button();
-            this.btCh5inc = new System.Windows.Forms.Button();
-            this.btCh0dec = new System.Windows.Forms.Button();
-            this.btCh1dec = new System.Windows.Forms.Button();
-            this.btCh2dec = new System.Windows.Forms.Button();
-            this.btCh3dec = new System.Windows.Forms.Button();
-            this.btCh4dec = new System.Windows.Forms.Button();
-            this.btCh5dec = new System.Windows.Forms.Button();
             this.pl0 = new Angel.PointsLabel();
             this.pl1 = new Angel.PointsLabel();
             this.pl2 = new Angel.PointsLabel();
@@ -172,12 +177,14 @@
             this.pn65.SuspendLayout();
             this.pn75.SuspendLayout();
             this.pn85.SuspendLayout();
+            this.pn92.SuspendLayout();
+            this.pn105.SuspendLayout();
+            this.pn155.SuspendLayout();
             this.pnMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnName
             // 
-            this.pnName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnName.Controls.Add(this.lbNameEnter);
             this.pnName.Controls.Add(this.tbName);
             this.pnName.Controls.Add(this.lbName);
@@ -191,7 +198,7 @@
             // 
             this.lbNameEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbNameEnter.AutoSize = true;
-            this.lbNameEnter.Location = new System.Drawing.Point(784, 14);
+            this.lbNameEnter.Location = new System.Drawing.Point(786, 14);
             this.lbNameEnter.Name = "lbNameEnter";
             this.lbNameEnter.Size = new System.Drawing.Size(70, 13);
             this.lbNameEnter.TabIndex = 2;
@@ -200,20 +207,21 @@
             // tbName
             // 
             this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbName.Location = new System.Drawing.Point(860, 11);
+            this.tbName.Location = new System.Drawing.Point(862, 11);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(190, 20);
             this.tbName.TabIndex = 0;
             this.tbName.Tag = "100";
             this.tbName.Text = "Тестимус";
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             this.tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // lbName
             // 
             this.lbName.Font = new System.Drawing.Font("Impact", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbName.Location = new System.Drawing.Point(428, -1);
+            this.lbName.Location = new System.Drawing.Point(428, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(205, 55);
+            this.lbName.Size = new System.Drawing.Size(205, 54);
             this.lbName.TabIndex = 0;
             this.lbName.Tag = "105";
             this.lbName.Text = "Имя";
@@ -266,7 +274,8 @@
             this.tlpMain.Controls.Add(this.pn75, 4, 6);
             this.tlpMain.Controls.Add(this.pn85, 4, 7);
             this.tlpMain.Controls.Add(this.pn92, 1, 8);
-            this.tlpMain.Controls.Add(this.panel1, 4, 9);
+            this.tlpMain.Controls.Add(this.pn105, 4, 9);
+            this.tlpMain.Controls.Add(this.pn155, 4, 14);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
@@ -288,6 +297,7 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
             this.tlpMain.Size = new System.Drawing.Size(1061, 488);
             this.tlpMain.TabIndex = 0;
+            this.tlpMain.Click += new System.EventHandler(this.Control_Click);
             // 
             // pn15Sex
             // 
@@ -315,7 +325,6 @@
             this.rbSexMale.Text = "Мужчина";
             this.rbSexMale.UseVisualStyleBackColor = true;
             this.rbSexMale.Visible = false;
-            this.rbSexMale.CheckedChanged += new System.EventHandler(this.Control_Changed);
             this.rbSexMale.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // rbSexFemale
@@ -334,7 +343,6 @@
             this.rbSexFemale.Text = "Женщина";
             this.rbSexFemale.UseVisualStyleBackColor = true;
             this.rbSexFemale.Visible = false;
-            this.rbSexFemale.CheckedChanged += new System.EventHandler(this.Control_Changed);
             this.rbSexFemale.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // lbSex
@@ -619,6 +627,38 @@
             this.pn32.Size = new System.Drawing.Size(205, 24);
             this.pn32.TabIndex = 2;
             // 
+            // btCh0dec
+            // 
+            this.btCh0dec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btCh0dec.Enabled = false;
+            this.btCh0dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh0dec.Location = new System.Drawing.Point(0, 0);
+            this.btCh0dec.Name = "btCh0dec";
+            this.btCh0dec.Size = new System.Drawing.Size(50, 24);
+            this.btCh0dec.TabIndex = 2;
+            this.btCh0dec.Tag = "120";
+            this.btCh0dec.Text = " -";
+            this.btCh0dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btCh0dec.UseVisualStyleBackColor = true;
+            this.btCh0dec.Visible = false;
+            this.btCh0dec.Click += new System.EventHandler(this.btCh_Click);
+            // 
+            // btCh0inc
+            // 
+            this.btCh0inc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btCh0inc.Enabled = false;
+            this.btCh0inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh0inc.Location = new System.Drawing.Point(155, 0);
+            this.btCh0inc.Margin = new System.Windows.Forms.Padding(0);
+            this.btCh0inc.Name = "btCh0inc";
+            this.btCh0inc.Size = new System.Drawing.Size(50, 24);
+            this.btCh0inc.TabIndex = 2;
+            this.btCh0inc.Tag = "130";
+            this.btCh0inc.Text = " +";
+            this.btCh0inc.UseVisualStyleBackColor = true;
+            this.btCh0inc.Visible = false;
+            this.btCh0inc.Click += new System.EventHandler(this.btCh_Click);
+            // 
             // pn42
             // 
             this.pn42.Controls.Add(this.btCh1dec);
@@ -628,6 +668,38 @@
             this.pn42.Name = "pn42";
             this.pn42.Size = new System.Drawing.Size(205, 24);
             this.pn42.TabIndex = 2;
+            // 
+            // btCh1dec
+            // 
+            this.btCh1dec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btCh1dec.Enabled = false;
+            this.btCh1dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh1dec.Location = new System.Drawing.Point(0, 0);
+            this.btCh1dec.Name = "btCh1dec";
+            this.btCh1dec.Size = new System.Drawing.Size(50, 24);
+            this.btCh1dec.TabIndex = 2;
+            this.btCh1dec.Tag = "121";
+            this.btCh1dec.Text = " -";
+            this.btCh1dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btCh1dec.UseVisualStyleBackColor = true;
+            this.btCh1dec.Visible = false;
+            this.btCh1dec.Click += new System.EventHandler(this.btCh_Click);
+            // 
+            // btCh1inc
+            // 
+            this.btCh1inc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btCh1inc.Enabled = false;
+            this.btCh1inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh1inc.Location = new System.Drawing.Point(155, 0);
+            this.btCh1inc.Margin = new System.Windows.Forms.Padding(0);
+            this.btCh1inc.Name = "btCh1inc";
+            this.btCh1inc.Size = new System.Drawing.Size(50, 24);
+            this.btCh1inc.TabIndex = 2;
+            this.btCh1inc.Tag = "131";
+            this.btCh1inc.Text = " +";
+            this.btCh1inc.UseVisualStyleBackColor = true;
+            this.btCh1inc.Visible = false;
+            this.btCh1inc.Click += new System.EventHandler(this.btCh_Click);
             // 
             // pn52
             // 
@@ -639,6 +711,38 @@
             this.pn52.Size = new System.Drawing.Size(205, 24);
             this.pn52.TabIndex = 2;
             // 
+            // btCh2dec
+            // 
+            this.btCh2dec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btCh2dec.Enabled = false;
+            this.btCh2dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh2dec.Location = new System.Drawing.Point(0, 0);
+            this.btCh2dec.Name = "btCh2dec";
+            this.btCh2dec.Size = new System.Drawing.Size(50, 24);
+            this.btCh2dec.TabIndex = 2;
+            this.btCh2dec.Tag = "122";
+            this.btCh2dec.Text = " -";
+            this.btCh2dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btCh2dec.UseVisualStyleBackColor = true;
+            this.btCh2dec.Visible = false;
+            this.btCh2dec.Click += new System.EventHandler(this.btCh_Click);
+            // 
+            // btCh2inc
+            // 
+            this.btCh2inc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btCh2inc.Enabled = false;
+            this.btCh2inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh2inc.Location = new System.Drawing.Point(155, 0);
+            this.btCh2inc.Margin = new System.Windows.Forms.Padding(0);
+            this.btCh2inc.Name = "btCh2inc";
+            this.btCh2inc.Size = new System.Drawing.Size(50, 24);
+            this.btCh2inc.TabIndex = 2;
+            this.btCh2inc.Tag = "132";
+            this.btCh2inc.Text = " +";
+            this.btCh2inc.UseVisualStyleBackColor = true;
+            this.btCh2inc.Visible = false;
+            this.btCh2inc.Click += new System.EventHandler(this.btCh_Click);
+            // 
             // pn62
             // 
             this.pn62.Controls.Add(this.btCh3dec);
@@ -649,6 +753,38 @@
             this.pn62.Size = new System.Drawing.Size(205, 24);
             this.pn62.TabIndex = 2;
             // 
+            // btCh3dec
+            // 
+            this.btCh3dec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btCh3dec.Enabled = false;
+            this.btCh3dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh3dec.Location = new System.Drawing.Point(0, 0);
+            this.btCh3dec.Name = "btCh3dec";
+            this.btCh3dec.Size = new System.Drawing.Size(50, 24);
+            this.btCh3dec.TabIndex = 2;
+            this.btCh3dec.Tag = "123";
+            this.btCh3dec.Text = " -";
+            this.btCh3dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btCh3dec.UseVisualStyleBackColor = true;
+            this.btCh3dec.Visible = false;
+            this.btCh3dec.Click += new System.EventHandler(this.btCh_Click);
+            // 
+            // btCh3inc
+            // 
+            this.btCh3inc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btCh3inc.Enabled = false;
+            this.btCh3inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh3inc.Location = new System.Drawing.Point(155, 0);
+            this.btCh3inc.Margin = new System.Windows.Forms.Padding(0);
+            this.btCh3inc.Name = "btCh3inc";
+            this.btCh3inc.Size = new System.Drawing.Size(50, 24);
+            this.btCh3inc.TabIndex = 2;
+            this.btCh3inc.Tag = "133";
+            this.btCh3inc.Text = " +";
+            this.btCh3inc.UseVisualStyleBackColor = true;
+            this.btCh3inc.Visible = false;
+            this.btCh3inc.Click += new System.EventHandler(this.btCh_Click);
+            // 
             // pn72
             // 
             this.pn72.Controls.Add(this.btCh4dec);
@@ -658,6 +794,38 @@
             this.pn72.Name = "pn72";
             this.pn72.Size = new System.Drawing.Size(205, 24);
             this.pn72.TabIndex = 2;
+            // 
+            // btCh4dec
+            // 
+            this.btCh4dec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btCh4dec.Enabled = false;
+            this.btCh4dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh4dec.Location = new System.Drawing.Point(0, 0);
+            this.btCh4dec.Name = "btCh4dec";
+            this.btCh4dec.Size = new System.Drawing.Size(50, 24);
+            this.btCh4dec.TabIndex = 2;
+            this.btCh4dec.Tag = "124";
+            this.btCh4dec.Text = " -";
+            this.btCh4dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btCh4dec.UseVisualStyleBackColor = true;
+            this.btCh4dec.Visible = false;
+            this.btCh4dec.Click += new System.EventHandler(this.btCh_Click);
+            // 
+            // btCh4inc
+            // 
+            this.btCh4inc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btCh4inc.Enabled = false;
+            this.btCh4inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh4inc.Location = new System.Drawing.Point(155, 0);
+            this.btCh4inc.Margin = new System.Windows.Forms.Padding(0);
+            this.btCh4inc.Name = "btCh4inc";
+            this.btCh4inc.Size = new System.Drawing.Size(50, 24);
+            this.btCh4inc.TabIndex = 2;
+            this.btCh4inc.Tag = "134";
+            this.btCh4inc.Text = " +";
+            this.btCh4inc.UseVisualStyleBackColor = true;
+            this.btCh4inc.Visible = false;
+            this.btCh4inc.Click += new System.EventHandler(this.btCh_Click);
             // 
             // pnLuckValue
             // 
@@ -670,6 +838,38 @@
             this.pnLuckValue.Name = "pnLuckValue";
             this.pnLuckValue.Size = new System.Drawing.Size(205, 24);
             this.pnLuckValue.TabIndex = 2;
+            // 
+            // btCh5dec
+            // 
+            this.btCh5dec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btCh5dec.Enabled = false;
+            this.btCh5dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh5dec.Location = new System.Drawing.Point(0, 0);
+            this.btCh5dec.Name = "btCh5dec";
+            this.btCh5dec.Size = new System.Drawing.Size(50, 24);
+            this.btCh5dec.TabIndex = 2;
+            this.btCh5dec.Tag = "125";
+            this.btCh5dec.Text = " -";
+            this.btCh5dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btCh5dec.UseVisualStyleBackColor = true;
+            this.btCh5dec.Visible = false;
+            this.btCh5dec.Click += new System.EventHandler(this.btCh_Click);
+            // 
+            // btCh5inc
+            // 
+            this.btCh5inc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btCh5inc.Enabled = false;
+            this.btCh5inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCh5inc.Location = new System.Drawing.Point(45, 0);
+            this.btCh5inc.Margin = new System.Windows.Forms.Padding(0);
+            this.btCh5inc.Name = "btCh5inc";
+            this.btCh5inc.Size = new System.Drawing.Size(50, 24);
+            this.btCh5inc.TabIndex = 2;
+            this.btCh5inc.Tag = "135";
+            this.btCh5inc.Text = " +";
+            this.btCh5inc.UseVisualStyleBackColor = true;
+            this.btCh5inc.Visible = false;
+            this.btCh5inc.Click += new System.EventHandler(this.btCh_Click);
             // 
             // rbLuckAVG
             // 
@@ -685,7 +885,6 @@
             this.rbLuckAVG.Tag = "120";
             this.rbLuckAVG.Text = "Средняя";
             this.rbLuckAVG.UseVisualStyleBackColor = true;
-            this.rbLuckAVG.CheckedChanged += new System.EventHandler(this.Control_Changed);
             this.rbLuckAVG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // rbLuckRND
@@ -703,7 +902,7 @@
             this.rbLuckRND.Tag = "121";
             this.rbLuckRND.Text = "Случайная";
             this.rbLuckRND.UseVisualStyleBackColor = true;
-            this.rbLuckRND.CheckedChanged += new System.EventHandler(this.Control_Changed);
+            this.rbLuckRND.Click += new System.EventHandler(this.Control_Click);
             this.rbLuckRND.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Control_KeyDown);
             // 
             // pn33
@@ -1109,6 +1308,7 @@
             // pn85
             // 
             this.pn85.Controls.Add(this.btDay);
+            this.pn85.Controls.Add(this.lbPracticeCode);
             this.pn85.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn85.Location = new System.Drawing.Point(849, 229);
             this.pn85.Margin = new System.Windows.Forms.Padding(0);
@@ -1129,23 +1329,94 @@
             this.btDay.UseVisualStyleBackColor = true;
             this.btDay.Click += new System.EventHandler(this.btDay_Click);
             // 
+            // lbPracticeCode
+            // 
+            this.lbPracticeCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbPracticeCode.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPracticeCode.Location = new System.Drawing.Point(0, 0);
+            this.lbPracticeCode.Name = "lbPracticeCode";
+            this.lbPracticeCode.Size = new System.Drawing.Size(211, 31);
+            this.lbPracticeCode.TabIndex = 1;
+            this.lbPracticeCode.Text = "РУ:НА:ОБ:УЧ:ЕН:ИЯ";
+            this.lbPracticeCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbPracticeCode.UseCompatibleTextRendering = true;
+            // 
             // pn92
             // 
-            this.pn92.Location = new System.Drawing.Point(216, 264);
+            this.pn92.Controls.Add(this.btEnd);
+            this.pn92.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn92.Location = new System.Drawing.Point(213, 261);
+            this.pn92.Margin = new System.Windows.Forms.Padding(0);
             this.pn92.Name = "pn92";
-            this.pn92.Size = new System.Drawing.Size(205, 24);
+            this.pn92.Size = new System.Drawing.Size(211, 31);
             this.pn92.TabIndex = 4;
             // 
-            // panel1
+            // btEnd
             // 
-            this.panel1.Location = new System.Drawing.Point(852, 296);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(205, 25);
-            this.panel1.TabIndex = 5;
+            this.btEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btEnd.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btEnd.Location = new System.Drawing.Point(0, 0);
+            this.btEnd.Margin = new System.Windows.Forms.Padding(0);
+            this.btEnd.Name = "btEnd";
+            this.btEnd.Size = new System.Drawing.Size(211, 31);
+            this.btEnd.TabIndex = 0;
+            this.btEnd.Tag = "150";
+            this.btEnd.Text = "Завершить";
+            this.btEnd.UseVisualStyleBackColor = true;
+            this.btEnd.Visible = false;
+            this.btEnd.Click += new System.EventHandler(this.Control_Click);
+            // 
+            // pn105
+            // 
+            this.pn105.Controls.Add(this.btSave);
+            this.pn105.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn105.Location = new System.Drawing.Point(849, 293);
+            this.pn105.Margin = new System.Windows.Forms.Padding(0);
+            this.pn105.Name = "pn105";
+            this.pn105.Size = new System.Drawing.Size(211, 31);
+            this.pn105.TabIndex = 5;
+            // 
+            // btSave
+            // 
+            this.btSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btSave.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btSave.Location = new System.Drawing.Point(0, 0);
+            this.btSave.Margin = new System.Windows.Forms.Padding(0);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(211, 31);
+            this.btSave.TabIndex = 0;
+            this.btSave.Tag = "160";
+            this.btSave.Text = "Сохранить";
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Visible = false;
+            this.btSave.Click += new System.EventHandler(this.Control_Click);
+            // 
+            // pn155
+            // 
+            this.pn155.Controls.Add(this.btNext);
+            this.pn155.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn155.Location = new System.Drawing.Point(849, 453);
+            this.pn155.Margin = new System.Windows.Forms.Padding(0);
+            this.pn155.Name = "pn155";
+            this.pn155.Size = new System.Drawing.Size(211, 34);
+            this.pn155.TabIndex = 6;
+            // 
+            // btNext
+            // 
+            this.btNext.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btNext.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btNext.Location = new System.Drawing.Point(0, 0);
+            this.btNext.Margin = new System.Windows.Forms.Padding(0);
+            this.btNext.Name = "btNext";
+            this.btNext.Size = new System.Drawing.Size(211, 34);
+            this.btNext.TabIndex = 0;
+            this.btNext.Tag = "100";
+            this.btNext.Text = "Далее...";
+            this.btNext.UseVisualStyleBackColor = true;
+            this.btNext.Click += new System.EventHandler(this.Control_Click);
             // 
             // pnTest
             // 
-            this.pnTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnTest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnTest.Location = new System.Drawing.Point(0, 545);
             this.pnTest.Name = "pnTest";
@@ -1161,198 +1432,6 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(1063, 490);
             this.pnMain.TabIndex = 3;
-            // 
-            // btCh0inc
-            // 
-            this.btCh0inc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btCh0inc.Enabled = false;
-            this.btCh0inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh0inc.Location = new System.Drawing.Point(155, 0);
-            this.btCh0inc.Margin = new System.Windows.Forms.Padding(0);
-            this.btCh0inc.Name = "btCh0inc";
-            this.btCh0inc.Size = new System.Drawing.Size(50, 24);
-            this.btCh0inc.TabIndex = 2;
-            this.btCh0inc.Tag = "130";
-            this.btCh0inc.Text = " +";
-            this.btCh0inc.UseVisualStyleBackColor = true;
-            this.btCh0inc.Visible = false;
-            this.btCh0inc.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh1inc
-            // 
-            this.btCh1inc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btCh1inc.Enabled = false;
-            this.btCh1inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh1inc.Location = new System.Drawing.Point(155, 0);
-            this.btCh1inc.Margin = new System.Windows.Forms.Padding(0);
-            this.btCh1inc.Name = "btCh1inc";
-            this.btCh1inc.Size = new System.Drawing.Size(50, 24);
-            this.btCh1inc.TabIndex = 2;
-            this.btCh1inc.Tag = "131";
-            this.btCh1inc.Text = " +";
-            this.btCh1inc.UseVisualStyleBackColor = true;
-            this.btCh1inc.Visible = false;
-            this.btCh1inc.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh2inc
-            // 
-            this.btCh2inc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btCh2inc.Enabled = false;
-            this.btCh2inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh2inc.Location = new System.Drawing.Point(155, 0);
-            this.btCh2inc.Margin = new System.Windows.Forms.Padding(0);
-            this.btCh2inc.Name = "btCh2inc";
-            this.btCh2inc.Size = new System.Drawing.Size(50, 24);
-            this.btCh2inc.TabIndex = 2;
-            this.btCh2inc.Tag = "132";
-            this.btCh2inc.Text = " +";
-            this.btCh2inc.UseVisualStyleBackColor = true;
-            this.btCh2inc.Visible = false;
-            this.btCh2inc.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh3inc
-            // 
-            this.btCh3inc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btCh3inc.Enabled = false;
-            this.btCh3inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh3inc.Location = new System.Drawing.Point(155, 0);
-            this.btCh3inc.Margin = new System.Windows.Forms.Padding(0);
-            this.btCh3inc.Name = "btCh3inc";
-            this.btCh3inc.Size = new System.Drawing.Size(50, 24);
-            this.btCh3inc.TabIndex = 2;
-            this.btCh3inc.Tag = "133";
-            this.btCh3inc.Text = " +";
-            this.btCh3inc.UseVisualStyleBackColor = true;
-            this.btCh3inc.Visible = false;
-            this.btCh3inc.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh4inc
-            // 
-            this.btCh4inc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btCh4inc.Enabled = false;
-            this.btCh4inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh4inc.Location = new System.Drawing.Point(155, 0);
-            this.btCh4inc.Margin = new System.Windows.Forms.Padding(0);
-            this.btCh4inc.Name = "btCh4inc";
-            this.btCh4inc.Size = new System.Drawing.Size(50, 24);
-            this.btCh4inc.TabIndex = 2;
-            this.btCh4inc.Tag = "134";
-            this.btCh4inc.Text = " +";
-            this.btCh4inc.UseVisualStyleBackColor = true;
-            this.btCh4inc.Visible = false;
-            this.btCh4inc.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh5inc
-            // 
-            this.btCh5inc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btCh5inc.Enabled = false;
-            this.btCh5inc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh5inc.Location = new System.Drawing.Point(45, 0);
-            this.btCh5inc.Margin = new System.Windows.Forms.Padding(0);
-            this.btCh5inc.Name = "btCh5inc";
-            this.btCh5inc.Size = new System.Drawing.Size(50, 24);
-            this.btCh5inc.TabIndex = 2;
-            this.btCh5inc.Tag = "135";
-            this.btCh5inc.Text = " +";
-            this.btCh5inc.UseVisualStyleBackColor = true;
-            this.btCh5inc.Visible = false;
-            this.btCh5inc.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh0dec
-            // 
-            this.btCh0dec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btCh0dec.Enabled = false;
-            this.btCh0dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh0dec.Location = new System.Drawing.Point(0, 0);
-            this.btCh0dec.Name = "btCh0dec";
-            this.btCh0dec.Size = new System.Drawing.Size(50, 24);
-            this.btCh0dec.TabIndex = 2;
-            this.btCh0dec.Tag = "120";
-            this.btCh0dec.Text = " -";
-            this.btCh0dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCh0dec.UseVisualStyleBackColor = true;
-            this.btCh0dec.Visible = false;
-            this.btCh0dec.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh1dec
-            // 
-            this.btCh1dec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btCh1dec.Enabled = false;
-            this.btCh1dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh1dec.Location = new System.Drawing.Point(0, 0);
-            this.btCh1dec.Name = "btCh1dec";
-            this.btCh1dec.Size = new System.Drawing.Size(50, 24);
-            this.btCh1dec.TabIndex = 2;
-            this.btCh1dec.Tag = "121";
-            this.btCh1dec.Text = " -";
-            this.btCh1dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCh1dec.UseVisualStyleBackColor = true;
-            this.btCh1dec.Visible = false;
-            this.btCh1dec.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh2dec
-            // 
-            this.btCh2dec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btCh2dec.Enabled = false;
-            this.btCh2dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh2dec.Location = new System.Drawing.Point(0, 0);
-            this.btCh2dec.Name = "btCh2dec";
-            this.btCh2dec.Size = new System.Drawing.Size(50, 24);
-            this.btCh2dec.TabIndex = 2;
-            this.btCh2dec.Tag = "122";
-            this.btCh2dec.Text = " -";
-            this.btCh2dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCh2dec.UseVisualStyleBackColor = true;
-            this.btCh2dec.Visible = false;
-            this.btCh2dec.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh3dec
-            // 
-            this.btCh3dec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btCh3dec.Enabled = false;
-            this.btCh3dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh3dec.Location = new System.Drawing.Point(0, 0);
-            this.btCh3dec.Name = "btCh3dec";
-            this.btCh3dec.Size = new System.Drawing.Size(50, 24);
-            this.btCh3dec.TabIndex = 2;
-            this.btCh3dec.Tag = "123";
-            this.btCh3dec.Text = " -";
-            this.btCh3dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCh3dec.UseVisualStyleBackColor = true;
-            this.btCh3dec.Visible = false;
-            this.btCh3dec.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh4dec
-            // 
-            this.btCh4dec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btCh4dec.Enabled = false;
-            this.btCh4dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh4dec.Location = new System.Drawing.Point(0, 0);
-            this.btCh4dec.Name = "btCh4dec";
-            this.btCh4dec.Size = new System.Drawing.Size(50, 24);
-            this.btCh4dec.TabIndex = 2;
-            this.btCh4dec.Tag = "124";
-            this.btCh4dec.Text = " -";
-            this.btCh4dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCh4dec.UseVisualStyleBackColor = true;
-            this.btCh4dec.Visible = false;
-            this.btCh4dec.Click += new System.EventHandler(this.btCh_Click);
-            // 
-            // btCh5dec
-            // 
-            this.btCh5dec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btCh5dec.Enabled = false;
-            this.btCh5dec.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btCh5dec.Location = new System.Drawing.Point(0, 0);
-            this.btCh5dec.Name = "btCh5dec";
-            this.btCh5dec.Size = new System.Drawing.Size(50, 24);
-            this.btCh5dec.TabIndex = 2;
-            this.btCh5dec.Tag = "125";
-            this.btCh5dec.Text = " -";
-            this.btCh5dec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCh5dec.UseVisualStyleBackColor = true;
-            this.btCh5dec.Visible = false;
-            this.btCh5dec.Click += new System.EventHandler(this.btCh_Click);
             // 
             // pl0
             // 
@@ -1393,6 +1472,7 @@
             this.pl3.Shift = 0;
             this.pl3.Size = new System.Drawing.Size(205, 24);
             this.pl3.TabIndex = 0;
+            this.pl3.Click += new System.EventHandler(this.Control_Click);
             // 
             // pl4
             // 
@@ -1467,6 +1547,9 @@
             this.pn65.ResumeLayout(false);
             this.pn75.ResumeLayout(false);
             this.pn85.ResumeLayout(false);
+            this.pn92.ResumeLayout(false);
+            this.pn105.ResumeLayout(false);
+            this.pn155.ResumeLayout(false);
             this.pnMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1562,7 +1645,7 @@
         private System.Windows.Forms.Button btDay;
         private System.Windows.Forms.Label lbFreePoint;
         private System.Windows.Forms.Panel pn92;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pn105;
         private System.Windows.Forms.RadioButton rbSexMale;
         private System.Windows.Forms.RadioButton rbSexFemale;
         private System.Windows.Forms.RadioButton rbLuckAVG;
@@ -1579,5 +1662,10 @@
         private System.Windows.Forms.Button btCh4inc;
         private System.Windows.Forms.Button btCh5dec;
         private System.Windows.Forms.Button btCh5inc;
+        private System.Windows.Forms.Label lbPracticeCode;
+        private System.Windows.Forms.Button btEnd;
+        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Panel pn155;
+        private System.Windows.Forms.Button btNext;
     }
 }

@@ -64,9 +64,8 @@ namespace Angel
                 fMain.oSchool.Activity[T[0]].Growth[T[1]][T[2]] = iValues;
 
                 //Обновление базы...
-                string _SQL;
-                _SQL = @"EXEC sp_xActivityCharacterN_Modify " + (T[0]) + "," + (T[1]) + "," + (T[2]) + ",'" + cFunc.ArrToStr(fMain.oSchool.Activity[T[0]].Growth[T[1]][T[2]]) + "'";
-                fMain.SQLChangeQuery(_SQL);
+                var db = new DBEntities();
+                db.sp_xActivityCharacterN_Modify(T[0], T[1], T[2], cFunc.ArrToStr(fMain.oSchool.Activity[T[0]].Growth[T[1]][T[2]]));
 
                 float _StatAvgSum = fMain.oSchool.Activity[T[0]].GetGrowthAvgSum(T[1], T[2]);
                 float _StatMinSum = fMain.oSchool.Activity[T[0]].GetGrowthMinSum(T[1], T[2]);

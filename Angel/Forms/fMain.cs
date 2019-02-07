@@ -26,30 +26,10 @@ namespace Angel
 
         private void fMain_Shown(object sender, EventArgs e)
         {
+            DBEntities db = new DBEntities();
+
             oSchool = new cSchool();
             oSchool.Load();
-        }
-
-        public static void SQLChangeQuery(string sql)//Запрос к SQL на изменение данных
-        {
-            string ConnectionString = @"user id=sa;password=24572457;server=(local);Trusted_Connection=yes;database=Hell;connection timeout=30";
-
-            SqlConnection Connection = new SqlConnection(ConnectionString);
-
-            try
-            {
-                Connection.Open();
-            }
-            catch (SqlException se)
-            {
-                //Console.WriteLine("Ошибка :{0}", se.Message);
-            }
-
-            SqlCommand cmd = new SqlCommand(sql, Connection);
-            cmd.ExecuteNonQuery();
-
-            Connection.Close();
-            Connection.Dispose();
         }
 
         private void Child_FormClosed(object sender, FormClosedEventArgs e)
@@ -75,17 +55,21 @@ namespace Angel
             switch (((ToolStripMenuItem)sender).Tag)
             {
                 case "10":
-                    if (formAngel == null)
-                    {
-                        formAngel = new fAngel();
-                        formAngel.MdiParent = this;
-                        formAngel.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Child_FormClosed);
-                        formAngel.Show();
-                    }
-                    else
-                    {
-                        formSchool.Activate();
-                    }
+                    formAngel = new fAngel();
+                    formAngel.MdiParent = this;
+                    formAngel.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Child_FormClosed);
+                    formAngel.Show();
+                    //if (formAngel == null)
+                    //{
+                    //formAngel = new fAngel();
+                    //    formAngel.MdiParent = this;
+                    //    formAngel.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Child_FormClosed);
+                    //    formAngel.Show();
+                    //}
+                    //else
+                    //{
+                    //    formAngel.Activate();
+                    //}
                     break;
                 case "20":
                     if (formSchool == null)

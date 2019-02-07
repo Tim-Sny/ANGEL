@@ -26,8 +26,8 @@ namespace Angel
         public string NamePlural { get; set; }
         public string Descr { get; set; }
     
+        public virtual sLoyaltyToLawGroup sLoyaltyToLawGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<dAngel> dAngel { get; set; }
-        public virtual sLoyaltyToLawGroup sLoyaltyToLawGroup { get; set; }
     }
 }

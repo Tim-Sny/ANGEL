@@ -21,6 +21,8 @@ namespace Angel
         {
            InitializeComponent();
 
+            chSelectPanel1.DataSource = fMain.oSchool.CharacterInfo;
+
             Control[,] PP = new Control[_NumCharacter, 7];
 
             this.Tag = NumberCharacter;
@@ -78,7 +80,9 @@ namespace Angel
         private void fEditCharacteristic_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsHell.xActivityTrain' table. You can move, or remove it, as needed.
-            this.xActivityTrainTableAdapter.Fill(this.dsHell.xActivityTrain);
+            //this.xActivityTrainTableAdapter.Fill(this.dsHell.xActivityTrain);
+            //chSelectPanel1.DataSource = fMain.oSchool.CharacterInfo;
+            //chSelectPanel1.
         }
 
         private void cbShowStat_CheckedChanged(object sender, EventArgs e)

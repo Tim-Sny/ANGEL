@@ -79,12 +79,6 @@ namespace Angel
             }
         }
 
-        private void fSchool_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dsHell.sDay' table. You can move, or remove it, as needed.
-            //this.taDay.Fill(this.dsHell.sDay);
-        }
-
         private void dayEnablePanel_ActivityChanged(object sender, EventArgs e)
         {
             int _IDActivity = this.lpActivityDayEnabled.GetRow((DayEnablePanel)sender) - 1;
@@ -92,9 +86,9 @@ namespace Angel
             int _Enable = ((((DayEnablePanel)sender).CharacterChecked) ? 1 : 0);
 
             fMain.oSchool.Activity[_IDActivity].WeekDayEnable[_IDsDay] = _Enable;
-            string _SQL;
-            _SQL = @"EXEC sp_xActivityDay_Modify " + _IDActivity + "," + _IDsDay + "," + _Enable;
-            fMain.SQLChangeQuery(_SQL);
+            
+            DBEntities db = new DBEntities();
+            db.sp_xActivityDay_Modify(_IDActivity,_IDsDay,_Enable);
         }
 
         private void cbShowStat_CheckedChanged(object sender, EventArgs e)

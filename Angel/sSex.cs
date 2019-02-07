@@ -12,13 +12,10 @@ namespace Angel
     using System;
     using System.Collections.Generic;
     
-    public partial class dAngelCharacter
+    public partial class sSex
     {
-        public System.Guid IDdAngel { get; set; }
-        public int IDsCharacter { get; set; }
-        public int Val { get; set; }
-        public int Max { get; set; }
-    
-        public virtual dAngel dAngel { get; set; }
+        public int IDsSex { get; set; }
+        public string Name { get; set; }
+        public string Descr { get; set; }
     }
 }

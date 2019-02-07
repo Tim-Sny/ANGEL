@@ -37,7 +37,7 @@ namespace Angel
         }
         public int Load()
         {
-            DBEntities db = new DBEntities();
+            var db = new DBEntities();
 
             // sActivity + sActivityType =================================
             var ATs = from a in db.sActivity
@@ -47,7 +47,8 @@ namespace Angel
                          Name = a.Name,
                          Descr = a.Descr,
                          IDsActivityType = t.IDsActivityType,
-                         Max = t.Max
+                         Max = t.Max,
+                         Code = a.Code //Code = t.Code + ":" + a.Code
                     };
             foreach (var AT in ATs)
             {
@@ -55,9 +56,10 @@ namespace Angel
                 Activity[AT.IDsActivity].Descr = AT.Descr;
                 Activity[AT.IDsActivity].Type  = AT.IDsActivityType;
                 Activity[AT.IDsActivity].Max   = AT.Max;
+                Activity[AT.IDsActivity].Code  = AT.Code;
             }
 
-            // xActivityTrain =================================
+            // xActivityCharacterN =================================
             foreach (var ACN in db.xActivityCharacterN)
             {
                 string[] _Values = ACN.Value.Split(';');
@@ -189,7 +191,7 @@ namespace Angel
                 }
             }
             //Если сегодня вы решили отдохнуть в мудрости, а завтра проведёте время с пользой и повысите одну из характеристик выше других, то получете ещё шесть штришков на сосдение характеристики...
-            if (Activity[activity].Type == 1 && angel.Practice[angel.Practice.DayCurrent - 1].Activity == 11)
+            if (angel.Practice.DayCurrent > 0 && Activity[activity].Type == 1 && angel.Practice[angel.Practice.DayCurrent - 1].Activity == 11)
                 switch (activity)
                 {
                     case 1: //если вы повысите силу, собирая камни, то вы повысите и сложение на +6...
@@ -214,14 +216,14 @@ namespace Angel
 
             for (int c = 0; c < _Points.Length; c++) // И увеличиваем характеристики...
             {
-
+                angel.Character[c].Shift = _Points[c];
                 if (c == 6) //Для БП накидки от Силы и Ловкости в Bonus, в Max - зависимость от сложения...
-                    angel.Character[c].ShiftBonus(_Points[c]);
+                    angel.Character[c].ShiftBonus();
                 else
                 {
                     if (angel.Character[c].HasMax)
-                        angel.Character[c].ShiftMax(_Points[c]);
-                    angel.Character[c].ShiftValue(_Points[c]);
+                        angel.Character[c].ShiftMax();
+                    angel.Character[c].ShiftValue();
                 }
                 //angel.Character[c].Value = angel.Character[c].Value + _Points[c];
 
@@ -336,6 +338,7 @@ namespace Angel
         public int Max;                   //Максимальное количество использования данной активности...
         public int Tag;                   //ТЭГ...
         public string Descr;              //Описание...
+        public string Code;               //Буквенный код...
 
         public float GetGrowthAvg(int c, int d)
         {

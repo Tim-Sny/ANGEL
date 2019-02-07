@@ -8,7 +8,9 @@ namespace Angel
     public class cAngel
     {
         public string Name;
+        public int Sex { get; set; }
         public cPractice Practice;
+        public Guid ID;
 
         public List<cCharacteristic> Character = new List<cCharacteristic>();
         public cCharacteristic _Force    = new cCharacteristic(); //СИЛА
@@ -25,7 +27,6 @@ namespace Angel
         public cCharacteristic _Spirit   = new cCharacteristic(); //Спирит-Силы
 
 
-        public int Sex { get; set; }
         public void SetStartValues(int days, int value) //Установка начальных значений
         {
             Practice.DaysOfActivity = days;
@@ -43,7 +44,22 @@ namespace Angel
         {
             int[] _Points = fMain.oSchool.EngadeInActivity(activity, this); // Рассчитали массив штришков...
         }
+        public void SetShift(int _shift) //Установка начальных значений
+        {
+            Character.ForEach(c => c.Shift = _shift);
+        }
+        public string GetPracticeString() //Получить строковые коды стажа
+        {
+            string res = "";
 
+            for (int n = 0; n < Practice.Day.Count; n++)
+            {
+                if (Practice.Day[n].Activity >= 0)
+                    res += ((n == 0) ? "" : ":") + fMain.oSchool.Activity[Practice.Day[n].Activity].Code;
+            }
+
+            return res;
+        }
         public cAngel()
         {
             _Battle.HasMax  = 
