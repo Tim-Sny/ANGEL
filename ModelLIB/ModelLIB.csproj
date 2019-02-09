@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F919C824-DC51-48FC-882B-2D2A19C416F6}</ProjectGuid>
+    <ProjectGuid>{FD0DD05D-E3A0-416B-96B9-7D2EAA8AF8B7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Angel</RootNamespace>
-    <AssemblyName>Angel</AssemblyName>
+    <RootNamespace>ModelLIB</RootNamespace>
+    <AssemblyName>ModelLIB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,13 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,32 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cAngel.cs" />
-    <Compile Include="cCharacteristic.cs" />
-    <Compile Include="cThing.cs" />
-    <Compile Include="cSchool.cs" />
+    <Compile Include="cActivity.cs" />
+    <Compile Include="cCharacterInfo.cs" />
+    <Compile Include="cDayOfActivity.cs" />
+    <Compile Include="cDependence.cs" />
+    <Compile Include="cFunc.cs" />
+    <Compile Include="cPractice.cs" />
+    <Compile Include="cSex.cs" />
+    <Compile Include="Dummies\DummyCharacteristic.cs" />
+    <Compile Include="eEventArgs.cs" />
+    <Compile Include="Interfases\iAngel.cs" />
+    <Compile Include="Interfases\iCharacteristic.cs" />
+    <Compile Include="Interfases\iSchool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ModelDB\ModelDB.csproj">
-      <Project>{02707082-90b5-4616-9592-80a87933cef1}</Project>
-      <Name>ModelDB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModelLIB\ModelLIB.csproj">
-      <Project>{fd0dd05d-e3a0-416b-96b9-7d2eaa8af8b7}</Project>
-      <Name>ModelLIB</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

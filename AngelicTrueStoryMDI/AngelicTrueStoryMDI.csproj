@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB9E735B-CDC6-415E-8953-53A1C739FB83}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AngelicTrueStoryMDI</RootNamespace>
+    <AssemblyName>AngelicTrueStoryMDI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vcCHSelectPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\vcCHSelectPanel.designer.cs">
+      <DependentUpon>vcCHSelectPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vcDayEnablePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\vcDayEnablePanel.Designer.cs">
+      <DependentUpon>vcDayEnablePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vcPoints.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\vcPoints.Designer.cs">
+      <DependentUpon>vcPoints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vcPointsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\vcPointsPanel.Designer.cs">
+      <DependentUpon>vcPointsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fMain.Designer.cs">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fAngel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fAngel.Designer.cs">
+      <DependentUpon>fAngel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fEditCharacteristic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fEditCharacteristic.Designer.cs">
+      <DependentUpon>fEditCharacteristic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fReferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fReferences.Designer.cs">
+      <DependentUpon>fReferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fSchool.Designer.cs">
+      <DependentUpon>fSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fSelectActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fSelectActivity.Designer.cs">
+      <DependentUpon>fSelectActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\vcDayEnablePanel.resx">
+      <DependentUpon>vcDayEnablePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fAngel.resx">
+      <DependentUpon>fAngel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fSchool.resx">
+      <DependentUpon>fSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Angel\Angel.csproj">
+      <Project>{F919C824-DC51-48FC-882B-2D2A19C416F6}</Project>
+      <Name>Angel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelDB\ModelDB.csproj">
+      <Project>{02707082-90b5-4616-9592-80a87933cef1}</Project>
+      <Name>ModelDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelLIB\ModelLIB.csproj">
+      <Project>{FD0DD05D-E3A0-416B-96B9-7D2EAA8AF8B7}</Project>
+      <Name>ModelLIB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

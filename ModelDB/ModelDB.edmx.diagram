@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c55265f6481e41caa850f06ae44de78c" Name="Diagram1">
+        <EntityTypeShape EntityType="HellModel.dAngel" Width="1.5" PointX="12.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.dAngelCharacter" Width="1.5" PointX="14.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.dAngelPracticeDay" Width="1.5" PointX="14.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.dAngelPracticeDayShift" Width="1.5" PointX="16.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sActivity" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sActivityType" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sCharacter" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sCharacterType" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sLoyaltyToLaw" Width="1.5" PointX="10" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sLoyaltyToLawGroup" Width="1.5" PointX="7.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sScore" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sSex" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.sTitle" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.xActivityCharacterN" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.xActivityDay" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.xCharacterDependence" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HellModel.vCharacterDependence" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="HellModel.FK_dAngel_sLoyaltyToLaw" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_dAngelCharacter_dAngel" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_dAngelPracticeDay_dAngel" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_dAngelPracticeDayShift_dAngelPracticeDay" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_sActivity_sActivityType" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_xActivityDay_sActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_xActivityTrain_sActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_xActivityTrain_sCharacter" ManuallyRouted="false" />
+        <AssociationConnector Association="HellModel.FK_sLoyaltyToLaw_sLoyaltyToLawGroup" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
