@@ -10,12 +10,13 @@ namespace AngelModel
     {
         public string Code { set; get; }
         public string Name { set; get; }
-        public List<cShiftCharacteristic> Shift { set; get; } = new List<cShiftCharacteristic>();
+        public List<cChangeCharacteristic> Changes { set; get; } = new List<cChangeCharacteristic>();
     }
 
-    public class cShiftCharacteristic
+    public class cChangeCharacteristic
     {
-        public int ID;
+        public Guid ID;
+        public int IDCharacter;
         public int Value;
         public int Max; 
     }

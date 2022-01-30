@@ -29,47 +29,57 @@
         private void InitializeComponent()
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.schoolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.прочитатьБазуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ангелToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSchool = new System.Windows.Forms.ToolStripMenuItem();
+            this.miRefs = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAngel = new System.Windows.Forms.ToolStripMenuItem();
+            this.miBonesAndStones = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.schoolToolStripMenuItem,
-            this.прочитатьБазуToolStripMenuItem,
-            this.ангелToolStripMenuItem});
+            this.miSchool,
+            this.miRefs,
+            this.miAngel,
+            this.miBonesAndStones});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(800, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // schoolToolStripMenuItem
+            // miSchool
             // 
-            this.schoolToolStripMenuItem.Name = "schoolToolStripMenuItem";
-            this.schoolToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.schoolToolStripMenuItem.Tag = "20";
-            this.schoolToolStripMenuItem.Text = "\"Накидки\"";
-            this.schoolToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_Click);
+            this.miSchool.Name = "miSchool";
+            this.miSchool.Size = new System.Drawing.Size(76, 20);
+            this.miSchool.Tag = "20";
+            this.miSchool.Text = "\"Накидки\"";
+            this.miSchool.Click += new System.EventHandler(this.MenuItem_Click);
             // 
-            // прочитатьБазуToolStripMenuItem
+            // miRefs
             // 
-            this.прочитатьБазуToolStripMenuItem.Name = "прочитатьБазуToolStripMenuItem";
-            this.прочитатьБазуToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.прочитатьБазуToolStripMenuItem.Tag = "30";
-            this.прочитатьБазуToolStripMenuItem.Text = "Справочники";
-            this.прочитатьБазуToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_Click);
+            this.miRefs.Name = "miRefs";
+            this.miRefs.Size = new System.Drawing.Size(94, 20);
+            this.miRefs.Tag = "30";
+            this.miRefs.Text = "Справочники";
+            this.miRefs.Click += new System.EventHandler(this.MenuItem_Click);
             // 
-            // ангелToolStripMenuItem
+            // miAngel
             // 
-            this.ангелToolStripMenuItem.Name = "ангелToolStripMenuItem";
-            this.ангелToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.ангелToolStripMenuItem.Tag = "10";
-            this.ангелToolStripMenuItem.Text = "Ангел";
-            this.ангелToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_Click);
+            this.miAngel.Name = "miAngel";
+            this.miAngel.Size = new System.Drawing.Size(52, 20);
+            this.miAngel.Tag = "10";
+            this.miAngel.Text = "Ангел";
+            this.miAngel.Click += new System.EventHandler(this.MenuItem_Click);
+            // 
+            // miBonesAndStones
+            // 
+            this.miBonesAndStones.Name = "miBonesAndStones";
+            this.miBonesAndStones.Size = new System.Drawing.Size(116, 20);
+            this.miBonesAndStones.Tag = "40";
+            this.miBonesAndStones.Text = "И кости, и камни!";
+            this.miBonesAndStones.Click += new System.EventHandler(this.MenuItem_Click);
             // 
             // fMain
             // 
@@ -93,9 +103,10 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem schoolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem прочитатьБазуToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ангелToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miSchool;
+        private System.Windows.Forms.ToolStripMenuItem miRefs;
+        private System.Windows.Forms.ToolStripMenuItem miAngel;
+        private System.Windows.Forms.ToolStripMenuItem miBonesAndStones;
     }
 }
 

@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tlMainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.comboBox = new System.Windows.Forms.ComboBox();
-            this.dBEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tlMainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBEntitiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tlMainPanel
@@ -54,9 +51,6 @@
             // 
             // comboBox
             // 
-            this.comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.dBEntitiesBindingSource, "dAngel", true));
-            this.comboBox.DataSource = this.dBEntitiesBindingSource;
-            this.comboBox.DisplayMember = "sCharacter";
             this.comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FormattingEnabled = true;
@@ -65,12 +59,7 @@
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(95, 21);
             this.comboBox.TabIndex = 9;
-            this.comboBox.ValueMember = "sCharacterType";
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
-            // 
-            // dBEntitiesBindingSource
-            // 
-            //this.dBEntitiesBindingSource.DataSource = typeof(Angel.DBEntities);
             // 
             // CHSelectPanel
             // 
@@ -81,7 +70,6 @@
             this.Name = "CHSelectPanel";
             this.Size = new System.Drawing.Size(95, 53);
             this.tlMainPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dBEntitiesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,6 +78,5 @@
 
         private System.Windows.Forms.TableLayoutPanel tlMainPanel;
         private System.Windows.Forms.ComboBox comboBox;
-        private System.Windows.Forms.BindingSource dBEntitiesBindingSource;
     }
 }

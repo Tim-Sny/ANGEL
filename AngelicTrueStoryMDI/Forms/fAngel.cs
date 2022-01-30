@@ -24,33 +24,6 @@ namespace AngelicTrueStory
             oAngel = new cAngel();
 
             oAngel.onValueChanged += oAngel_onValueChanged;
-            //oAngel._Force.ValueControl    = pl0;
-            //oAngel._Physique.ValueControl = pl1;
-            //oAngel._Agility.ValueControl  = pl2;
-            //oAngel._Wisdom.ValueControl   = pl3;
-            //oAngel._Magic.ValueControl    = pl4;
-            //oAngel._Luck.ValueControl     = pl5;
-            //oAngel._Battle.MaxControl     = lbBattleMax;
-            //oAngel._Battle.ValueControl   = lbBattleCur;
-            //oAngel._Life.MaxControl       = lbLifeMax;
-            //oAngel._Life.ValueControl     = lbLifeCur;
-            //oAngel._Bonus.ValueControl    = lbFreePoint;
-            //oAngel.Practice.DaysLeftControl  = btDay;
-            //oAngel.Practice.DaysTotalControl = lbDays;
-
-            //oAngel._Risk.MaxControl      = lbRiskMax;
-            //oAngel._Risk.ValueControl    = lbRiskCur;
-            //oAngel._Science.MaxControl   = lbScienceMax;
-            //oAngel._Science.ValueControl = lbScienceCur;
-            //oAngel._Spirit.MaxControl    = lbSpiritMax;
-            //oAngel._Spirit.ValueControl  = lbSpiritCur;
-
-            //oAngel._Force.ScoreControl    = lb00;
-            //oAngel._Physique.ScoreControl = lb01;
-            //oAngel._Agility.ScoreControl  = lb02;
-            //oAngel._Wisdom.ScoreControl   = lb03;
-            //oAngel._Magic.ScoreControl    = lb04;
-
             for (int x = 0; x < 5; x++)
                 for (int y = 1; y < 8; y++)
                 {

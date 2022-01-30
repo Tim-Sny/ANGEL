@@ -1,0 +1,11 @@
+D:\VSProjects\ANGEL\ModelLIB\bin\Debug\ModelLIB.dll
+D:\VSProjects\ANGEL\ModelLIB\bin\Debug\ModelLIB.pdb
+D:\VSProjects\ANGEL\ModelLIB\obj\Debug\ModelLIB.csproj.CoreCompileInputs.cache
+D:\VSProjects\ANGEL\ModelLIB\obj\Debug\ModelLIB.dll
+D:\VSProjects\ANGEL\ModelLIB\obj\Debug\ModelLIB.pdb
+D:\VSProjects\ANGEL\ModelLIB\bin\Debug\ModelLIB.dll.config
+D:\VSProjects\ANGEL\ModelLIB\bin\Debug\EntityFramework.dll
+D:\VSProjects\ANGEL\ModelLIB\bin\Debug\EntityFramework.SqlServer.dll
+D:\VSProjects\ANGEL\ModelLIB\bin\Debug\EntityFramework.xml
+D:\VSProjects\ANGEL\ModelLIB\bin\Debug\EntityFramework.SqlServer.xml
+D:\VSProjects\ANGEL\ModelLIB\obj\Debug\ModelLIB.csproj.CopyComplete

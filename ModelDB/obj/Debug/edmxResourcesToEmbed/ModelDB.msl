@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HellModelStoreContainer" CdmEntityContainer="DBEntities">
+    <EntitySetMapping Name="dAngel">
+      <EntityTypeMapping TypeName="HellModel.dAngel">
+        <MappingFragment StoreEntitySet="dAngel">
+          <ScalarProperty Name="IDdAngel" ColumnName="IDdAngel" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDsSex" ColumnName="IDsSex" />
+          <ScalarProperty Name="IDsLoyaltyToLaw" ColumnName="IDsLoyaltyToLaw" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dAngelCharacter">
+      <EntityTypeMapping TypeName="HellModel.dAngelCharacter">
+        <MappingFragment StoreEntitySet="dAngelCharacter">
+          <ScalarProperty Name="IDdAngel" ColumnName="IDdAngel" />
+          <ScalarProperty Name="IDsCharacter" ColumnName="IDsCharacter" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dAngelPracticeDay">
+      <EntityTypeMapping TypeName="HellModel.dAngelPracticeDay">
+        <MappingFragment StoreEntitySet="dAngelPracticeDay">
+          <ScalarProperty Name="IDdPracticeDay" ColumnName="IDdPracticeDay" />
+          <ScalarProperty Name="IDdAngel" ColumnName="IDdAngel" />
+          <ScalarProperty Name="DayNumber" ColumnName="DayNumber" />
+          <ScalarProperty Name="IDsActivity" ColumnName="IDsActivity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dAngelPracticeDayShift">
+      <EntityTypeMapping TypeName="HellModel.dAngelPracticeDayShift">
+        <MappingFragment StoreEntitySet="dAngelPracticeDayShift">
+          <ScalarProperty Name="IDdPracticeDay" ColumnName="IDdPracticeDay" />
+          <ScalarProperty Name="IDsCharacter" ColumnName="IDsCharacter" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sActivity">
+      <EntityTypeMapping TypeName="HellModel.sActivity">
+        <MappingFragment StoreEntitySet="sActivity">
+          <ScalarProperty Name="IDsActivity" ColumnName="IDsActivity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDsActivityType" ColumnName="IDsActivityType" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sActivityType">
+      <EntityTypeMapping TypeName="HellModel.sActivityType">
+        <MappingFragment StoreEntitySet="sActivityType">
+          <ScalarProperty Name="IDsActivityType" ColumnName="IDsActivityType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sCharacter">
+      <EntityTypeMapping TypeName="HellModel.sCharacter">
+        <MappingFragment StoreEntitySet="sCharacter">
+          <ScalarProperty Name="IDsCharacter" ColumnName="IDsCharacter" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameAlt" ColumnName="NameAlt" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+          <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sCharacterType">
+      <EntityTypeMapping TypeName="HellModel.sCharacterType">
+        <MappingFragment StoreEntitySet="sCharacterType">
+          <ScalarProperty Name="IDsCharacterType" ColumnName="IDsCharacterType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sLoyaltyToLaw">
+      <EntityTypeMapping TypeName="HellModel.sLoyaltyToLaw">
+        <MappingFragment StoreEntitySet="sLoyaltyToLaw">
+          <ScalarProperty Name="IDsLoyaltyToLaw" ColumnName="IDsLoyaltyToLaw" />
+          <ScalarProperty Name="IDsLoyaltyToLawGroup" ColumnName="IDsLoyaltyToLawGroup" />
+          <ScalarProperty Name="NameSingle" ColumnName="NameSingle" />
+          <ScalarProperty Name="NamePlural" ColumnName="NamePlural" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sLoyaltyToLawGroup">
+      <EntityTypeMapping TypeName="HellModel.sLoyaltyToLawGroup">
+        <MappingFragment StoreEntitySet="sLoyaltyToLawGroup">
+          <ScalarProperty Name="IDsLoyaltyToLawGroup" ColumnName="IDsLoyaltyToLawGroup" />
+          <ScalarProperty Name="NameSingle" ColumnName="NameSingle" />
+          <ScalarProperty Name="NamePlural" ColumnName="NamePlural" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sScore">
+      <EntityTypeMapping TypeName="HellModel.sScore">
+        <MappingFragment StoreEntitySet="sScore">
+          <ScalarProperty Name="IDsScore" ColumnName="IDsScore" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="N" ColumnName="N" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sSex">
+      <EntityTypeMapping TypeName="HellModel.sSex">
+        <MappingFragment StoreEntitySet="sSex">
+          <ScalarProperty Name="IDsSex" ColumnName="IDsSex" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sTitle">
+      <EntityTypeMapping TypeName="HellModel.sTitle">
+        <MappingFragment StoreEntitySet="sTitle">
+          <ScalarProperty Name="IDsTitle" ColumnName="IDsTitle" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="N" ColumnName="N" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xActivityCharacterN">
+      <EntityTypeMapping TypeName="HellModel.xActivityCharacterN">
+        <MappingFragment StoreEntitySet="xActivityCharacterN">
+          <ScalarProperty Name="IDsActivity" ColumnName="IDsActivity" />
+          <ScalarProperty Name="IDsCharacter" ColumnName="IDsCharacter" />
+          <ScalarProperty Name="N" ColumnName="N" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xActivityDay">
+      <EntityTypeMapping TypeName="HellModel.xActivityDay">
+        <MappingFragment StoreEntitySet="xActivityDay">
+          <ScalarProperty Name="IDsActivity" ColumnName="IDsActivity" />
+          <ScalarProperty Name="N" ColumnName="N" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xCharacterDependence">
+      <EntityTypeMapping TypeName="HellModel.xCharacterDependence">
+        <MappingFragment StoreEntitySet="xCharacterDependence">
+          <ScalarProperty Name="IDsCharacter" ColumnName="IDsCharacter" />
+          <ScalarProperty Name="IDsCharacterDependent" ColumnName="IDsCharacterDependent" />
+          <ScalarProperty Name="IDsSex" ColumnName="IDsSex" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCharacterDependence">
+      <EntityTypeMapping TypeName="HellModel.vCharacterDependence">
+        <MappingFragment StoreEntitySet="vCharacterDependence">
+          <ScalarProperty Name="chr" ColumnName="chr" />
+          <ScalarProperty Name="dep" ColumnName="dep" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="beg" ColumnName="beg" />
+          <ScalarProperty Name="end" ColumnName="end" />
+          <ScalarProperty Name="val" ColumnName="val" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HellModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HellModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HellModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HellModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HellModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HellModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HellModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HellModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HellModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_xActivityCharacterN_Modify" FunctionName="HellModel.Store.sp_xActivityCharacterN_Modify" />
+    <FunctionImportMapping FunctionImportName="sp_xActivityDay_Modify" FunctionName="HellModel.Store.sp_xActivityDay_Modify" />
+  </EntityContainerMapping>
+</Mapping>

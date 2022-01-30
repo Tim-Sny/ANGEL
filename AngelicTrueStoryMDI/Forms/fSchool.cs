@@ -90,7 +90,7 @@ namespace AngelicTrueStory
             int _Enable = ((((DayEnablePanel)sender).CharacterChecked) ? 1 : 0);
 
             cSchool.Activity[_IDActivity].WeekDayEnable[_IDsDay] = _Enable;
-            
+
             DBEntities db = new DBEntities();
             db.sp_xActivityDay_Modify(_IDActivity,_IDsDay,_Enable);
         }

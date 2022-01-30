@@ -89,14 +89,14 @@ namespace AngelicTrueStoryMDI.Controls
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
             int n = Math.Abs(_shift);
             int s = (_shift > 0) ? 1 : -1;
             for (int i = 0; i < n; i++)
             {
                 Shift += -s;
                 Points += s;
-                Thread.Sleep(50);
+                //Thread.Sleep(50);
             }
         }
     }

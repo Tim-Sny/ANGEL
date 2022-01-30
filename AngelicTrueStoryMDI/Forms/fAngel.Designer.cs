@@ -141,6 +141,12 @@ namespace AngelicTrueStory
             this.pnTest = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
             this.Tips = new System.Windows.Forms.ToolTip(this.components);
+            this.pbForce = new System.Windows.Forms.PictureBox();
+            this.pbPhysique = new System.Windows.Forms.PictureBox();
+            this.pbAgility = new System.Windows.Forms.PictureBox();
+            this.pbWisdom = new System.Windows.Forms.PictureBox();
+            this.pbMagic = new System.Windows.Forms.PictureBox();
+            this.pbLuck = new System.Windows.Forms.PictureBox();
             this.pnName.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.pn15Sex.SuspendLayout();
@@ -183,6 +189,12 @@ namespace AngelicTrueStory
             this.pn105.SuspendLayout();
             this.pn155.SuspendLayout();
             this.pnMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbForce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhysique)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgility)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWisdom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMagic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLuck)).BeginInit();
             this.SuspendLayout();
             // 
             // pnName
@@ -501,6 +513,7 @@ namespace AngelicTrueStory
             // 
             // pn31
             // 
+            this.pn31.Controls.Add(this.pbForce);
             this.pn31.Controls.Add(this.lb31);
             this.pn31.Location = new System.Drawing.Point(4, 72);
             this.pn31.Name = "pn31";
@@ -511,6 +524,7 @@ namespace AngelicTrueStory
             // 
             this.lb31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb31.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb31.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lb31.Location = new System.Drawing.Point(0, 0);
             this.lb31.Name = "lb31";
             this.lb31.Size = new System.Drawing.Size(205, 24);
@@ -521,6 +535,7 @@ namespace AngelicTrueStory
             // 
             // pn41
             // 
+            this.pn41.Controls.Add(this.pbPhysique);
             this.pn41.Controls.Add(this.lb41);
             this.pn41.Location = new System.Drawing.Point(4, 104);
             this.pn41.Name = "pn41";
@@ -541,6 +556,7 @@ namespace AngelicTrueStory
             // 
             // pn51
             // 
+            this.pn51.Controls.Add(this.pbAgility);
             this.pn51.Controls.Add(this.lb51);
             this.pn51.Location = new System.Drawing.Point(4, 136);
             this.pn51.Name = "pn51";
@@ -561,6 +577,7 @@ namespace AngelicTrueStory
             // 
             // pn61
             // 
+            this.pn61.Controls.Add(this.pbWisdom);
             this.pn61.Controls.Add(this.lb61);
             this.pn61.Location = new System.Drawing.Point(4, 168);
             this.pn61.Name = "pn61";
@@ -581,6 +598,7 @@ namespace AngelicTrueStory
             // 
             // pn71
             // 
+            this.pn71.Controls.Add(this.pbMagic);
             this.pn71.Controls.Add(this.lb71);
             this.pn71.Location = new System.Drawing.Point(4, 200);
             this.pn71.Name = "pn71";
@@ -601,6 +619,7 @@ namespace AngelicTrueStory
             // 
             // pnLuckCaption
             // 
+            this.pnLuckCaption.Controls.Add(this.pbLuck);
             this.pnLuckCaption.Controls.Add(this.lb81);
             this.pnLuckCaption.Location = new System.Drawing.Point(4, 232);
             this.pnLuckCaption.Name = "pnLuckCaption";
@@ -1496,6 +1515,78 @@ namespace AngelicTrueStory
             this.pnMain.Size = new System.Drawing.Size(1063, 490);
             this.pnMain.TabIndex = 3;
             // 
+            // pbForce
+            // 
+            this.pbForce.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbForce.Image = global::AngelicTrueStoryMDI.Properties.Resources._Force;
+            this.pbForce.Location = new System.Drawing.Point(179, 0);
+            this.pbForce.Margin = new System.Windows.Forms.Padding(0);
+            this.pbForce.Name = "pbForce";
+            this.pbForce.Size = new System.Drawing.Size(26, 24);
+            this.pbForce.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbForce.TabIndex = 1;
+            this.pbForce.TabStop = false;
+            // 
+            // pbPhysique
+            // 
+            this.pbPhysique.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbPhysique.Image = global::AngelicTrueStoryMDI.Properties.Resources._Physique;
+            this.pbPhysique.Location = new System.Drawing.Point(179, 0);
+            this.pbPhysique.Margin = new System.Windows.Forms.Padding(0);
+            this.pbPhysique.Name = "pbPhysique";
+            this.pbPhysique.Size = new System.Drawing.Size(26, 24);
+            this.pbPhysique.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPhysique.TabIndex = 2;
+            this.pbPhysique.TabStop = false;
+            // 
+            // pbAgility
+            // 
+            this.pbAgility.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbAgility.Image = global::AngelicTrueStoryMDI.Properties.Resources._Agility;
+            this.pbAgility.Location = new System.Drawing.Point(179, 0);
+            this.pbAgility.Margin = new System.Windows.Forms.Padding(0);
+            this.pbAgility.Name = "pbAgility";
+            this.pbAgility.Size = new System.Drawing.Size(26, 24);
+            this.pbAgility.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAgility.TabIndex = 2;
+            this.pbAgility.TabStop = false;
+            // 
+            // pbWisdom
+            // 
+            this.pbWisdom.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbWisdom.Image = global::AngelicTrueStoryMDI.Properties.Resources._Wisdom;
+            this.pbWisdom.Location = new System.Drawing.Point(179, 0);
+            this.pbWisdom.Margin = new System.Windows.Forms.Padding(0);
+            this.pbWisdom.Name = "pbWisdom";
+            this.pbWisdom.Size = new System.Drawing.Size(26, 24);
+            this.pbWisdom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbWisdom.TabIndex = 2;
+            this.pbWisdom.TabStop = false;
+            // 
+            // pbMagic
+            // 
+            this.pbMagic.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbMagic.Image = global::AngelicTrueStoryMDI.Properties.Resources._Magic;
+            this.pbMagic.Location = new System.Drawing.Point(179, 0);
+            this.pbMagic.Margin = new System.Windows.Forms.Padding(0);
+            this.pbMagic.Name = "pbMagic";
+            this.pbMagic.Size = new System.Drawing.Size(26, 24);
+            this.pbMagic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMagic.TabIndex = 2;
+            this.pbMagic.TabStop = false;
+            // 
+            // pbLuck
+            // 
+            this.pbLuck.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbLuck.Image = global::AngelicTrueStoryMDI.Properties.Resources._Luck;
+            this.pbLuck.Location = new System.Drawing.Point(179, 0);
+            this.pbLuck.Margin = new System.Windows.Forms.Padding(0);
+            this.pbLuck.Name = "pbLuck";
+            this.pbLuck.Size = new System.Drawing.Size(26, 24);
+            this.pbLuck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLuck.TabIndex = 2;
+            this.pbLuck.TabStop = false;
+            // 
             // fAngel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1553,6 +1644,12 @@ namespace AngelicTrueStory
             this.pn105.ResumeLayout(false);
             this.pn155.ResumeLayout(false);
             this.pnMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbForce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhysique)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgility)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWisdom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMagic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLuck)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1669,5 +1766,11 @@ namespace AngelicTrueStory
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Panel pn155;
         private System.Windows.Forms.Button btNext;
+        private System.Windows.Forms.PictureBox pbForce;
+        private System.Windows.Forms.PictureBox pbPhysique;
+        private System.Windows.Forms.PictureBox pbAgility;
+        private System.Windows.Forms.PictureBox pbWisdom;
+        private System.Windows.Forms.PictureBox pbMagic;
+        private System.Windows.Forms.PictureBox pbLuck;
     }
 }

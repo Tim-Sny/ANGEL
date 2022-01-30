@@ -5,12 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using ModelLIB;
 using ModelLIB.Interfases;
-using ModelDB;
 
 namespace AngelModel
 {
 
-    public class cSchool
+    public static class cSchool
     {
         public static int NumberActivity { get { return 12; } }
         public static int NumCharacter   { get { return  7; } }
@@ -25,10 +24,22 @@ namespace AngelModel
         public static List<cSex> Sex = new List<cSex>();
         public static List<cCharacterInfo> CharacterInfo = new List<cCharacterInfo>();
 
-        public cSchool()
+        static cSchool()
         {
             Activity = new cActivity[NumberActivity];
-            for (int i = 0; i < Activity.Length; i++) { Activity[i] = new cActivity(); }
+            for (int a = 0; a < Activity.Length; a++)
+            {
+                Activity[a] = new cActivity();
+                Activity[a].Growth = new int[cSchool.NumCharacter][][];
+                for (int i = 0; i < Activity[a].Growth.Length; i++)
+                {
+                    Activity[a].Growth[i] = new int[cSchool.NumDay][];
+                    for (int j = 0; j < Activity[a].Growth[i].Length; j++)
+                    {
+                        Activity[a].Growth[i][j] = new int[] { 0 };
+                    }
+                }
+            }
 
             CharacterInfo = new List<cCharacterInfo>();
             Dependencies = new List<cDependence>();
@@ -37,9 +48,9 @@ namespace AngelModel
             Sex.Add(new cSex() { ID = 1, Name = "Мужчина"  });
             Sex.Add(new cSex() { ID = 2, Name = "Женщина"  });
         }
-        public int Load()
+        public static int Load()
         {
-            var db = new DBEntities();
+            var db = new ModelDB.DBEntities();
 
             // sActivity + sActivityType =================================
             var ATs = from a in db.sActivity
@@ -111,7 +122,6 @@ namespace AngelModel
             return 0;
         }
 
-        //public static int[] EngadeInActivity(int activity, cAngel angel) //Рассчёт накидок 
         public static int[] EngadeInActivity(int activity, cAngel angel) //Рассчёт накидок 
         {
             int[] _Points = new int[angel.Character.Count];
@@ -220,12 +230,15 @@ namespace AngelModel
             for (int c = 0; c < _Points.Length; c++) // И увеличиваем характеристики...
             {
                 angel.Character[c].Shift = _Points[c];
-                if (c == 6) //Для БП накидки от Силы и Ловкости в Bonus, в Max - зависимость от Сложения...
+                if (c == 6) //Для БП накидки от Силы и Ловкости в Things (будто это артефакты), в Max - зависимость от Сложения...
                 {
-                    //angel.Character[c].ShiftBonus();
-                    List<cShiftCharacteristic> _shift = new List<cShiftCharacteristic>();
-                    _shift.Add(new cShiftCharacteristic { ID = 6, Value = 0, Max = _Points[c] });
-                    angel.Things.Add(new cThing { Code = "BONUS_A" + activity.ToString(), Name = Activity[activity].Name, Shift = _shift });
+                    List<cChangeCharacteristic> _changes = new List<cChangeCharacteristic>(); 
+                    _changes.Add(new cChangeCharacteristic { ID = Guid.NewGuid(), IDCharacter = 6, Value = 0, Max = _Points[c] });
+                    angel.AddThings(new cThing {
+                        Code = "A" + activity.ToString() + "L" + expTtl,
+                        Name = Activity[activity].Name,
+                        Changes = _changes
+                    });
                 }
                 else
                 {
@@ -233,9 +246,8 @@ namespace AngelModel
                         angel.Character[c].ShiftMax();
                     angel.Character[c].ShiftValue();
                 }
-                //angel.Character[c].Value = angel.Character[c].Value + _Points[c];
 
-                ProcessDependencies(c, angel);
+                ProcessDependencies(c, angel); //Рассчёт зависимых характеристик...
             }
 
             angel.Practice.Day.Add(new cDayOfActivity(activity, _Points)); // Добавляем день в опыт...
@@ -245,7 +257,7 @@ namespace AngelModel
         public static int ProcessDependencies(int c, cAngel angel)
         {
             var deps = (from d in Dependencies
-                        where d.chr == c && angel._Physique.Value >= d.beg && angel._Physique.Value < d.end
+                        where d.chr == c && angel.Character[c].Value >= d.beg && angel.Character[c].Value < d.end  //???????????!!!!!!!!!!!!!!
                         select new { d.dep, d.val }).ToList();
 
             foreach (var dep in deps)
@@ -292,7 +304,7 @@ namespace AngelModel
 
             return res;
         }
-        public int GetScoreByPoints(int level, int point) //Рассчитать оценку по уровню и штришкам
+        public static int GetScoreByPoints(int level, int point) //Рассчитать оценку по уровню и штришкам
         {
             int points = ((level * (level + 1)) / 2) + point;
 
@@ -311,7 +323,7 @@ namespace AngelModel
 
             return res;
         }
-        public int GetNByPoints(int level, int point) //Рассчитать N (для БП) по уровню и штришкам
+        public static int GetNByPoints(int level, int point) //Рассчитать N (для БП) по уровню и штришкам
         {
             int n = 0;
             int res = 0;
@@ -326,134 +338,5 @@ namespace AngelModel
             return res;
         }
     }
-
-    public class cActivity
-    {
-        public string Name;               //Название характеристики (Массив названий)...
-        public string TypeName;           //Тип (Тренировка, Время, Отдых)...
-        public int Type;                  //Тип (0, 1, 2)...
-        public int[] WeekDayEnable;       //Доступность по дням недели...
-        public int[][][] Growth;          //Изменение характеристики [ID Характеристики][Уровень/День недели][Изменение]...
-        public int Max;                   //Максимальное количество использования данной активности...
-        public int Tag;                   //ТЭГ...
-        public string Descr;              //Описание...
-        public string Code;               //Буквенный код...
-
-        public float GetGrowthAvg(int c, int d)
-        {
-            return (float)(cFunc.IntArraySum(Growth[c][d])) / Growth[c][d].Length;
-        }
-        public float GetGrowthAvgSum(int c, int d)
-        {
-            float sum = 0;
-            for (int n = 0; n <= d; n++)
-            {
-                if(!(c == 6 && n == 0)) //В случае рассчёта для БП не учитывать поле выбора (ComboBox) в столбце первого дня... 
-                {
-                    sum = sum + GetGrowthAvg(c, n);
-                }
-            }
-            return sum;
-        }
-        public int GetGrowthMin(int c, int d)
-        {
-            int min = Growth[c][d][0];
-            for (int n = 0; n < Growth[c][d].Length; n++)
-            {
-                min = (Growth[c][d][n] < min) ? Growth[c][d][n] : min;
-            }
-            return min;
-        }
-        public int GetGrowthMinSum(int c, int d)
-        {
-            int sum = 0;
-            for (int n = 0; n <= d; n++)
-            {
-                sum = sum + GetGrowthMin(c, n);
-            }
-            return sum;
-        }
-        public int GetGrowthMax(int c, int d)
-        {
-            int max = Growth[c][d][0];
-            for (int n = 0; n < Growth[c][d].Length; n++)
-            {
-                max = (Growth[c][d][n] > max) ? Growth[c][d][n] : max;
-            }
-            return max;
-        }
-        public int GetGrowthMaxSum(int c, int d)
-        {
-            int sum = 0;
-            for (int n = 0; n <= d; n++)
-            {
-                sum = sum + GetGrowthMax(c, n);
-            }
-            return sum;
-        }
-        public int GetGrowthRND(int c, int d)
-        {
-            Random rand = new Random();
-            int n = rand.Next(0, Growth[c][d].Length);
-
-            return Growth[c][d][n];
-        }
-        public bool IsActiveByWeekDay(int d)
-        {
-            bool res;
-
-            res = (WeekDayEnable[d] == 1);
-
-            return res;
-        }
-        public bool IsActive(int d, int exp)
-        {
-            bool res;
-
-            res = (WeekDayEnable[d] == 1 && exp < Max);
-
-            return res;
-        }
-
-        public cActivity()
-        {
-            Name = "Наименование";
-            Type = 0;
-            WeekDayEnable = new int[7] { 0, 0, 0, 0, 0, 0, 0 };
-
-            Growth = new int[cSchool.NumCharacter][][];
-            for (int i = 0; i < Growth.Length; i++) {
-                Growth[i] = new int[cSchool.NumDay][];
-                for (int j = 0; j < Growth[i].Length; j++) {
-                    Growth[i][j] = new int[] { 0 };
-                }
-            }
-        }
-    }
-
-    //public class cSex
-    //{
-    //    public string Name { get; set; }
-    //    public int ID { get; set; }
-    //}
-
-    //public class cCharacterInfo
-    //{
-    //    public int    ID      { get; set; }
-    //    public string Name    { get; set; }
-    //    public string NameAlt { get; set; }
-    //    public string Descr   { get; set; }
-    //    //public string NameEN { get; set; }
-    //}
-
-    //public class cDependence
-    //{
-    //    public int chr; //Влияющая арактеристика
-    //    public int dep; //Зависимая характеристика
-    //    public int sex; //Пол 
-    //    public int beg; //Начало диапазона штришков
-    //    public int end; //Конец диапазона штришков
-    //    public int val; //Значение
-    //}
 }
 

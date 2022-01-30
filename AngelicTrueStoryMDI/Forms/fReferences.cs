@@ -24,9 +24,17 @@ namespace AngelicTrueStory
             DBEntities db = new DBEntities();
             BindingSource bs = new BindingSource();
 
+            //db.sActivity.Include(x => x.sActivityType).Load();
+            db.sActivity.Load();
+            this.sActivityBindingSource.DataSource = db.sActivity.Local.ToBindingList(); 
             //db.sActivityType.Where(x=> x == x).Load();
-            bs.DataSource = db.sActivityType.Local.ToBindingList(); 
-            dataGridView2.DataSource = bs;
+            //bs.DataSource = db.sActivityType.Local.ToBindingList(); 
+            //dataGridView2.DataSource = bs;
+        }
+
+        private void sActivityBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

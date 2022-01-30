@@ -1,0 +1,11 @@
+D:\VSProjects\ANGEL\ModelDB\bin\Debug\ModelDB.dll.config
+D:\VSProjects\ANGEL\ModelDB\bin\Debug\ModelDB.dll
+D:\VSProjects\ANGEL\ModelDB\bin\Debug\ModelDB.pdb
+D:\VSProjects\ANGEL\ModelDB\bin\Debug\EntityFramework.dll
+D:\VSProjects\ANGEL\ModelDB\bin\Debug\EntityFramework.SqlServer.dll
+D:\VSProjects\ANGEL\ModelDB\bin\Debug\EntityFramework.xml
+D:\VSProjects\ANGEL\ModelDB\bin\Debug\EntityFramework.SqlServer.xml
+D:\VSProjects\ANGEL\ModelDB\obj\Debug\ModelDB.csproj.CoreCompileInputs.cache
+D:\VSProjects\ANGEL\ModelDB\obj\Debug\ModelDB.csproj.CopyComplete
+D:\VSProjects\ANGEL\ModelDB\obj\Debug\ModelDB.dll
+D:\VSProjects\ANGEL\ModelDB\obj\Debug\ModelDB.pdb

@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HellModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="dAngel">
+    <Key>
+      <PropertyRef Name="IDdAngel" />
+    </Key>
+    <Property Name="IDdAngel" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDsSex" Type="Int32" Nullable="false" />
+    <Property Name="IDsLoyaltyToLaw" Type="Int32" />
+    <NavigationProperty Name="sLoyaltyToLaw" Relationship="Self.FK_dAngel_sLoyaltyToLaw" FromRole="dAngel" ToRole="sLoyaltyToLaw" />
+    <NavigationProperty Name="dAngelCharacter" Relationship="Self.FK_dAngelCharacter_dAngel" FromRole="dAngel" ToRole="dAngelCharacter" />
+    <NavigationProperty Name="dAngelPracticeDay" Relationship="Self.FK_dAngelPracticeDay_dAngel" FromRole="dAngel" ToRole="dAngelPracticeDay" />
+  </EntityType>
+  <EntityType Name="dAngelCharacter">
+    <Key>
+      <PropertyRef Name="IDdAngel" />
+      <PropertyRef Name="IDsCharacter" />
+    </Key>
+    <Property Name="IDdAngel" Type="Guid" Nullable="false" />
+    <Property Name="IDsCharacter" Type="Int32" Nullable="false" />
+    <Property Name="Val" Type="Int32" Nullable="false" />
+    <Property Name="Max" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dAngel" Relationship="Self.FK_dAngelCharacter_dAngel" FromRole="dAngelCharacter" ToRole="dAngel" />
+  </EntityType>
+  <EntityType Name="dAngelPracticeDay">
+    <Key>
+      <PropertyRef Name="IDdPracticeDay" />
+    </Key>
+    <Property Name="IDdPracticeDay" Type="Guid" Nullable="false" />
+    <Property Name="IDdAngel" Type="Guid" Nullable="false" />
+    <Property Name="DayNumber" Type="Int32" Nullable="false" />
+    <Property Name="IDsActivity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dAngel" Relationship="Self.FK_dAngelPracticeDay_dAngel" FromRole="dAngelPracticeDay" ToRole="dAngel" />
+    <NavigationProperty Name="dAngelPracticeDayShift" Relationship="Self.FK_dAngelPracticeDayShift_dAngelPracticeDay" FromRole="dAngelPracticeDay" ToRole="dAngelPracticeDayShift" />
+  </EntityType>
+  <EntityType Name="dAngelPracticeDayShift">
+    <Key>
+      <PropertyRef Name="IDdPracticeDay" />
+      <PropertyRef Name="IDsCharacter" />
+    </Key>
+    <Property Name="IDdPracticeDay" Type="Guid" Nullable="false" />
+    <Property Name="IDsCharacter" Type="Int32" Nullable="false" />
+    <Property Name="Shift" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dAngelPracticeDay" Relationship="Self.FK_dAngelPracticeDayShift_dAngelPracticeDay" FromRole="dAngelPracticeDayShift" ToRole="dAngelPracticeDay" />
+  </EntityType>
+  <EntityType Name="sActivity">
+    <Key>
+      <PropertyRef Name="IDsActivity" />
+    </Key>
+    <Property Name="IDsActivity" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDsActivityType" Type="Int32" Nullable="false" />
+    <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sActivityType" Relationship="Self.FK_sActivity_sActivityType" FromRole="sActivity" ToRole="sActivityType" />
+    <NavigationProperty Name="xActivityDay" Relationship="Self.FK_xActivityDay_sActivity" FromRole="sActivity" ToRole="xActivityDay" />
+    <NavigationProperty Name="xActivityCharacterN" Relationship="Self.FK_xActivityTrain_sActivity" FromRole="sActivity" ToRole="xActivityCharacterN" />
+  </EntityType>
+  <EntityType Name="sActivityType">
+    <Key>
+      <PropertyRef Name="IDsActivityType" />
+    </Key>
+    <Property Name="IDsActivityType" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Max" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sActivity" Relationship="Self.FK_sActivity_sActivityType" FromRole="sActivityType" ToRole="sActivity" />
+  </EntityType>
+  <EntityType Name="sCharacter">
+    <Key>
+      <PropertyRef Name="IDsCharacter" />
+    </Key>
+    <Property Name="IDsCharacter" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameAlt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="xActivityCharacterN" Relationship="Self.FK_xActivityTrain_sCharacter" FromRole="sCharacter" ToRole="xActivityCharacterN" />
+  </EntityType>
+  <EntityType Name="sCharacterType">
+    <Key>
+      <PropertyRef Name="IDsCharacterType" />
+    </Key>
+    <Property Name="IDsCharacterType" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sLoyaltyToLaw">
+    <Key>
+      <PropertyRef Name="IDsLoyaltyToLaw" />
+    </Key>
+    <Property Name="IDsLoyaltyToLaw" Type="Int32" Nullable="false" />
+    <Property Name="IDsLoyaltyToLawGroup" Type="Int32" Nullable="false" />
+    <Property Name="NameSingle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NamePlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="dAngel" Relationship="Self.FK_dAngel_sLoyaltyToLaw" FromRole="sLoyaltyToLaw" ToRole="dAngel" />
+    <NavigationProperty Name="sLoyaltyToLawGroup" Relationship="Self.FK_sLoyaltyToLaw_sLoyaltyToLawGroup" FromRole="sLoyaltyToLaw" ToRole="sLoyaltyToLawGroup" />
+  </EntityType>
+  <EntityType Name="sLoyaltyToLawGroup">
+    <Key>
+      <PropertyRef Name="IDsLoyaltyToLawGroup" />
+    </Key>
+    <Property Name="IDsLoyaltyToLawGroup" Type="Int32" Nullable="false" />
+    <Property Name="NameSingle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NamePlural" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="sLoyaltyToLaw" Relationship="Self.FK_sLoyaltyToLaw_sLoyaltyToLawGroup" FromRole="sLoyaltyToLawGroup" ToRole="sLoyaltyToLaw" />
+  </EntityType>
+  <EntityType Name="sScore">
+    <Key>
+      <PropertyRef Name="IDsScore" />
+    </Key>
+    <Property Name="IDsScore" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Points" Type="Int32" Nullable="false" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <Property Name="N" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sSex">
+    <Key>
+      <PropertyRef Name="IDsSex" />
+    </Key>
+    <Property Name="IDsSex" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sTitle">
+    <Key>
+      <PropertyRef Name="IDsTitle" />
+    </Key>
+    <Property Name="IDsTitle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="N" Type="Int32" />
+  </EntityType>
+  <EntityType Name="xActivityCharacterN">
+    <Key>
+      <PropertyRef Name="IDsActivity" />
+      <PropertyRef Name="IDsCharacter" />
+      <PropertyRef Name="N" />
+    </Key>
+    <Property Name="IDsActivity" Type="Int32" Nullable="false" />
+    <Property Name="IDsCharacter" Type="Int32" Nullable="false" />
+    <Property Name="N" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sActivity" Relationship="Self.FK_xActivityTrain_sActivity" FromRole="xActivityCharacterN" ToRole="sActivity" />
+    <NavigationProperty Name="sCharacter" Relationship="Self.FK_xActivityTrain_sCharacter" FromRole="xActivityCharacterN" ToRole="sCharacter" />
+  </EntityType>
+  <EntityType Name="xActivityDay">
+    <Key>
+      <PropertyRef Name="IDsActivity" />
+      <PropertyRef Name="N" />
+    </Key>
+    <Property Name="IDsActivity" Type="Int32" Nullable="false" />
+    <Property Name="N" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="sActivity" Relationship="Self.FK_xActivityDay_sActivity" FromRole="xActivityDay" ToRole="sActivity" />
+  </EntityType>
+  <EntityType Name="xCharacterDependence">
+    <Key>
+      <PropertyRef Name="IDsCharacter" />
+      <PropertyRef Name="IDsCharacterDependent" />
+      <PropertyRef Name="IDsSex" />
+      <PropertyRef Name="Points" />
+    </Key>
+    <Property Name="IDsCharacter" Type="Int32" Nullable="false" />
+    <Property Name="IDsCharacterDependent" Type="Int32" Nullable="false" />
+    <Property Name="IDsSex" Type="Int32" Nullable="false" />
+    <Property Name="Points" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="vCharacterDependence">
+    <Key>
+      <PropertyRef Name="chr" />
+      <PropertyRef Name="dep" />
+      <PropertyRef Name="sex" />
+      <PropertyRef Name="beg" />
+    </Key>
+    <Property Name="chr" Type="Int32" Nullable="false" />
+    <Property Name="dep" Type="Int32" Nullable="false" />
+    <Property Name="sex" Type="Int32" Nullable="false" />
+    <Property Name="beg" Type="Int32" Nullable="false" />
+    <Property Name="end" Type="Int32" />
+    <Property Name="val" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_dAngel_sLoyaltyToLaw">
+    <End Role="sLoyaltyToLaw" Type="Self.sLoyaltyToLaw" Multiplicity="0..1" />
+    <End Role="dAngel" Type="Self.dAngel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sLoyaltyToLaw">
+        <PropertyRef Name="IDsLoyaltyToLaw" />
+      </Principal>
+      <Dependent Role="dAngel">
+        <PropertyRef Name="IDsLoyaltyToLaw" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dAngelCharacter_dAngel">
+    <End Role="dAngel" Type="Self.dAngel" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="dAngelCharacter" Type="Self.dAngelCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dAngel">
+        <PropertyRef Name="IDdAngel" />
+      </Principal>
+      <Dependent Role="dAngelCharacter">
+        <PropertyRef Name="IDdAngel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dAngelPracticeDay_dAngel">
+    <End Role="dAngel" Type="Self.dAngel" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="dAngelPracticeDay" Type="Self.dAngelPracticeDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dAngel">
+        <PropertyRef Name="IDdAngel" />
+      </Principal>
+      <Dependent Role="dAngelPracticeDay">
+        <PropertyRef Name="IDdAngel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dAngelPracticeDayShift_dAngelPracticeDay">
+    <End Role="dAngelPracticeDay" Type="Self.dAngelPracticeDay" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="dAngelPracticeDayShift" Type="Self.dAngelPracticeDayShift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dAngelPracticeDay">
+        <PropertyRef Name="IDdPracticeDay" />
+      </Principal>
+      <Dependent Role="dAngelPracticeDayShift">
+        <PropertyRef Name="IDdPracticeDay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sActivity_sActivityType">
+    <End Role="sActivityType" Type="Self.sActivityType" Multiplicity="1" />
+    <End Role="sActivity" Type="Self.sActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sActivityType">
+        <PropertyRef Name="IDsActivityType" />
+      </Principal>
+      <Dependent Role="sActivity">
+        <PropertyRef Name="IDsActivityType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_xActivityDay_sActivity">
+    <End Role="sActivity" Type="Self.sActivity" Multiplicity="1" />
+    <End Role="xActivityDay" Type="Self.xActivityDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sActivity">
+        <PropertyRef Name="IDsActivity" />
+      </Principal>
+      <Dependent Role="xActivityDay">
+        <PropertyRef Name="IDsActivity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_xActivityTrain_sActivity">
+    <End Role="sActivity" Type="Self.sActivity" Multiplicity="1" />
+    <End Role="xActivityCharacterN" Type="Self.xActivityCharacterN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sActivity">
+        <PropertyRef Name="IDsActivity" />
+      </Principal>
+      <Dependent Role="xActivityCharacterN">
+        <PropertyRef Name="IDsActivity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_xActivityTrain_sCharacter">
+    <End Role="sCharacter" Type="Self.sCharacter" Multiplicity="1" />
+    <End Role="xActivityCharacterN" Type="Self.xActivityCharacterN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sCharacter">
+        <PropertyRef Name="IDsCharacter" />
+      </Principal>
+      <Dependent Role="xActivityCharacterN">
+        <PropertyRef Name="IDsCharacter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sLoyaltyToLaw_sLoyaltyToLawGroup">
+    <End Role="sLoyaltyToLawGroup" Type="Self.sLoyaltyToLawGroup" Multiplicity="1" />
+    <End Role="sLoyaltyToLaw" Type="Self.sLoyaltyToLaw" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sLoyaltyToLawGroup">
+        <PropertyRef Name="IDsLoyaltyToLawGroup" />
+      </Principal>
+      <Dependent Role="sLoyaltyToLaw">
+        <PropertyRef Name="IDsLoyaltyToLawGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dAngel" EntityType="Self.dAngel" />
+    <EntitySet Name="dAngelCharacter" EntityType="Self.dAngelCharacter" />
+    <EntitySet Name="dAngelPracticeDay" EntityType="Self.dAngelPracticeDay" />
+    <EntitySet Name="dAngelPracticeDayShift" EntityType="Self.dAngelPracticeDayShift" />
+    <EntitySet Name="sActivity" EntityType="Self.sActivity" />
+    <EntitySet Name="sActivityType" EntityType="Self.sActivityType" />
+    <EntitySet Name="sCharacter" EntityType="Self.sCharacter" />
+    <EntitySet Name="sCharacterType" EntityType="Self.sCharacterType" />
+    <EntitySet Name="sLoyaltyToLaw" EntityType="Self.sLoyaltyToLaw" />
+    <EntitySet Name="sLoyaltyToLawGroup" EntityType="Self.sLoyaltyToLawGroup" />
+    <EntitySet Name="sScore" EntityType="Self.sScore" />
+    <EntitySet Name="sSex" EntityType="Self.sSex" />
+    <EntitySet Name="sTitle" EntityType="Self.sTitle" />
+    <EntitySet Name="xActivityCharacterN" EntityType="Self.xActivityCharacterN" />
+    <EntitySet Name="xActivityDay" EntityType="Self.xActivityDay" />
+    <EntitySet Name="xCharacterDependence" EntityType="Self.xCharacterDependence" />
+    <EntitySet Name="vCharacterDependence" EntityType="Self.vCharacterDependence" />
+    <AssociationSet Name="FK_dAngel_sLoyaltyToLaw" Association="Self.FK_dAngel_sLoyaltyToLaw">
+      <End Role="sLoyaltyToLaw" EntitySet="sLoyaltyToLaw" />
+      <End Role="dAngel" EntitySet="dAngel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dAngelCharacter_dAngel" Association="Self.FK_dAngelCharacter_dAngel">
+      <End Role="dAngel" EntitySet="dAngel" />
+      <End Role="dAngelCharacter" EntitySet="dAngelCharacter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dAngelPracticeDay_dAngel" Association="Self.FK_dAngelPracticeDay_dAngel">
+      <End Role="dAngel" EntitySet="dAngel" />
+      <End Role="dAngelPracticeDay" EntitySet="dAngelPracticeDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dAngelPracticeDayShift_dAngelPracticeDay" Association="Self.FK_dAngelPracticeDayShift_dAngelPracticeDay">
+      <End Role="dAngelPracticeDay" EntitySet="dAngelPracticeDay" />
+      <End Role="dAngelPracticeDayShift" EntitySet="dAngelPracticeDayShift" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sActivity_sActivityType" Association="Self.FK_sActivity_sActivityType">
+      <End Role="sActivityType" EntitySet="sActivityType" />
+      <End Role="sActivity" EntitySet="sActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_xActivityDay_sActivity" Association="Self.FK_xActivityDay_sActivity">
+      <End Role="sActivity" EntitySet="sActivity" />
+      <End Role="xActivityDay" EntitySet="xActivityDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_xActivityTrain_sActivity" Association="Self.FK_xActivityTrain_sActivity">
+      <End Role="sActivity" EntitySet="sActivity" />
+      <End Role="xActivityCharacterN" EntitySet="xActivityCharacterN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_xActivityTrain_sCharacter" Association="Self.FK_xActivityTrain_sCharacter">
+      <End Role="sCharacter" EntitySet="sCharacter" />
+      <End Role="xActivityCharacterN" EntitySet="xActivityCharacterN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sLoyaltyToLaw_sLoyaltyToLawGroup" Association="Self.FK_sLoyaltyToLaw_sLoyaltyToLawGroup">
+      <End Role="sLoyaltyToLawGroup" EntitySet="sLoyaltyToLawGroup" />
+      <End Role="sLoyaltyToLaw" EntitySet="sLoyaltyToLaw" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HellModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HellModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sp_xActivityCharacterN_Modify">
+      <Parameter Name="in_IDsACTIVITY" Mode="In" Type="Int32" />
+      <Parameter Name="in_IDsCHARACTER" Mode="In" Type="Int32" />
+      <Parameter Name="in_N" Mode="In" Type="Int32" />
+      <Parameter Name="in_VALUE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_xActivityDay_Modify">
+      <Parameter Name="in_IDsACTIVITY" Mode="In" Type="Int32" />
+      <Parameter Name="in_N" Mode="In" Type="Int32" />
+      <Parameter Name="in_VALUE" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

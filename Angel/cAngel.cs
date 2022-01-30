@@ -29,8 +29,31 @@ namespace AngelModel
         public cCharacteristic _Science  = new cCharacteristic(); //Единицы Наук
         public cCharacteristic _Spirit   = new cCharacteristic(); //Спирит-Силы
 
-        public List<cThing> Things = new List<cThing>(); 
+        public List<cThing> Things;
+        public List<cChangeCharacteristic> Changes;
 
+        public void AddThings(cThing _thing)
+        {
+            Things.Add(_thing);
+            foreach (cChangeCharacteristic _change in _thing.Changes)
+                if ((from c in Changes where c.ID == _change.ID select c).Count() == 0)
+                {
+                    Changes.Add(_change);
+                    Character[_change.IDCharacter].EventInit();
+                }
+
+        }
+        public void RemoveThings(cThing _thing)
+        {
+            foreach (cChangeCharacteristic _change in _thing.Changes)
+            {
+                var ch = (from c in Changes where c.ID == _change.ID select c).First();
+                Changes.Remove(ch);
+                Character[_change.IDCharacter].EventInit();
+            }
+            Things.Remove(_thing);
+
+        }
         public void SetStartValues(int days, int value) //Установка начальных значений
         {
             Practice.DaysOfActivity = days;
@@ -64,8 +87,23 @@ namespace AngelModel
 
             return res;
         }
+        public string GetThingString() //Получить строковые коды Вещей-Бонусов
+        {
+            string res = "";
+
+            //foreach(cThing th in Things)
+            for (int n = 0; n < Practice.Day.Count; n++)
+            {
+                res += ((n == 0) ? "" : ":") + Things[n].Code;
+            }
+
+            return res;
+        }
         public cAngel()
         {
+            Things = new List<cThing>();
+            Changes = new List<cChangeCharacteristic>();
+
             _Battle.HasMax  = 
             _Bonus.HasMax   = 
             _Life.HasMax    = 
@@ -101,6 +139,7 @@ namespace AngelModel
             c.ID = id;
             c.Code = nameof(c);
             c.onValueChanged += _onValueChanged;
+            c.Changes = this.Changes;
         }
         private void _onValueChanged(object sender, eValueEventArgs e)
         {

@@ -97,16 +97,6 @@ namespace ModelLIB
             Name = "Наименование";
             Type = 0;
             WeekDayEnable = new int[7] { 0, 0, 0, 0, 0, 0, 0 };
-
-            //Growth = new int[cSchool.NumCharacter][][];
-            //for (int i = 0; i < Growth.Length; i++)
-            //{
-            //    Growth[i] = new int[cSchool.NumDay][];
-            //    for (int j = 0; j < Growth[i].Length; j++)
-            //    {
-            //        Growth[i][j] = new int[] { 0 };
-            //    }
-            //}
         }
     }
 }

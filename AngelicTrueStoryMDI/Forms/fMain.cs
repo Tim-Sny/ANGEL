@@ -11,15 +11,17 @@ using System.Data.SqlClient;
 using AngelModel;
 using AngelicTrueStory;
 using ModelDB;
+using BonesAndStones;
 
 namespace AngelicTrueStoryMDI
 {
     public partial class fMain : Form
     {
-        public static cSchool oSchool;
+        //public static cSchool oSchool;
         public fAngel formAngel;
         public fSchool formSchool;
         public fReferences formReferences;
+        public fBonesAndStones formBonesAndStones;
         public static List<fEditCharacteristic> formEditCharacteristics = new List<fEditCharacteristic>();
 
         public fMain()
@@ -31,8 +33,8 @@ namespace AngelicTrueStoryMDI
         {
             DBEntities db = new DBEntities();
 
-            oSchool = new cSchool();
-            oSchool.Load();
+            //oSchool = new cSchool();
+            cSchool.Load();
         }
 
         private void Child_FormClosed(object sender, FormClosedEventArgs e)
@@ -47,6 +49,9 @@ namespace AngelicTrueStoryMDI
                     break;
                 case "30":
                     formReferences = null;
+                    break;
+                case "40":
+                    formBonesAndStones = null;
                     break;
                 default:
                     break;
@@ -98,6 +103,22 @@ namespace AngelicTrueStoryMDI
                     else
                     {
                         formReferences.Activate();
+                    }
+                    break;
+                case "40":
+                    if (formBonesAndStones == null)
+                    {
+                        cGame game = new cGame();
+                        fBonesAndStones formBonesAndStones = new fBonesAndStones();
+                        сMessages messages = new сMessages();
+                        cPresenter presenter = new cPresenter(game, formBonesAndStones, messages);
+
+                        formBonesAndStones.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Child_FormClosed);
+                        formBonesAndStones.ShowDialog();
+                    }
+                    else
+                    {
+                        formBonesAndStones.Activate();
                     }
                     break;
                 default:
